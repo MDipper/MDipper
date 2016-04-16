@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<div class="footer">
-				<p >Copyright &copy; 2015-2016 MDipper </p>
-</div>
+联系
 </body>
 </html>

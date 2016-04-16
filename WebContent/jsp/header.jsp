@@ -27,9 +27,9 @@
       });
     });
   </script>
+  
 </head>
 <body>
-	<div class="phone"><a href="user/tologin">登录</a></div>
 	<div class="header" id="home">
 		<div class="container">
 			<div class="logo">
@@ -39,9 +39,9 @@
 			<div class="navigation">
 				<span class="menu"></span>
 				<ul id="nav" class="navig">
-					<li><a href="" class="active">Home</a>
+					<li><a href="" class="active">首页</a>
 						<div></div></li>
-					<li><a href="#services" class="scroll">Services</a>
+					<li><a href="#services" class="scroll">关于</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -52,7 +52,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a href="#experties" class="scroll">Experties</a>
+					<li><a href="#experties" class="scroll">产品</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -63,7 +63,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a href="#pricing" class="scroll">Pricing</a>
+					<li><a href="#pricing" class="scroll">新闻</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -74,7 +74,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a href="#team" class="scroll">Team</a>
+					<li><a href="#team" class="scroll">服务</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -85,14 +85,11 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a href="#features" class="scroll">Features</a>
+					<li><a href="#features" class="scroll">招聘</a>
 						<div></div></li>
-					<li><a href="#projects" class="scroll">Projects</a>
+					<li><a href="#projects" class="scroll">联系</a>
 						<div></div></li>
-					<li><a href="#blog" class="scroll">Blog</a>
-						<div></div></li>
-					<li><a href="#get" class="scroll">Get In Touch</a>
-						<div></div></li>
+	
 				</ul>
 			</div>
 		</div>
