@@ -23,6 +23,6 @@
 	<%@ include file="/jsp/footer.jsp"%>
 </body>
   <script>
-  $(document).pjax('a', '#main')
+  $(document).pjax('a', '#main');
   </script>
 </html>

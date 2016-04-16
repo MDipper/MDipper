@@ -2,9 +2,9 @@
   padding: 0;
   position: relative;
 }
-.footer{ background-color: #ffffff; }
+.footer{ background-color: #000000; }
 .footer  p{
-	color: #000000;
+	color: #ffffff;
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -24,7 +24,7 @@
   display: table;
   content: " ";
 }
-html, body {
+html, body footer{
   font-size: 100%;
   background: #fff;
   font-family: 'Titillium Web', sans-serif;
