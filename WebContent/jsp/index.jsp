@@ -20,7 +20,7 @@
 		</div>
 	
 	</div>
-	<%-- <%@ include file="/jsp/footer.jsp"%> --%>
+	<%@ include file="/jsp/footer.jsp"%>
 </body>
   <script>
   $(document).pjax('a', '#main')

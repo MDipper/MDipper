@@ -2,9 +2,9 @@
   padding: 0;
   position: relative;
 }
-.footer{ background-color: #000; }
+.footer{ background-color: #ffffff; }
 .footer  p{
-	color: white;
+	color: #000000;
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 20px;
