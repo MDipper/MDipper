@@ -19,28 +19,26 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	public UserMapper userMapper;
 	
+	
+	@Override
 	public int  addUser(User user){
 		// TODO Auto-generated method stub
 		int userid= userMapper.addUser(user);
 		return userid;
 	}
-
+	
 	@Override
 	public int checkUserByUsername(String username) {
 		// TODO Auto-generated method stub
-		return 0;
+		return userMapper.checkUserByUsername(username);
 	}
-
-	@Override
-	public int checkUsernamePassword(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int checkUsernamePassword(User user)
+	{
+		return userMapper.checkUsernamePassword(user);
 	}
-
-	@Override
-	public List<User> findAllUser() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> findAllUser()
+	{
+		return userMapper.findAllUser();
 	}
 
 }
