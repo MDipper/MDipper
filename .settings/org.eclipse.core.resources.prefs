@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//WebContent/jsp/about.jsp=UTF-8
 encoding//WebContent/jsp/contract.jsp=UTF-8
+encoding//WebContent/jsp/join.jsp=UTF-8
+encoding//WebContent/jsp/product.jsp=UTF-8
 encoding//WebContent/jsp/service.jsp=UTF-8
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
