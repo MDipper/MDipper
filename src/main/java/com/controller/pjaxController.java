@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/MDipper")
+@RequestMapping("/main")
 public class pjaxController {
 
 	@RequestMapping(value ="/about" )
