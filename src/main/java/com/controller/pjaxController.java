@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/MDipper")
 public class pjaxController {
 
-	@RequestMapping(value ="/about" ,headers="X-PJAX=true")
+	@RequestMapping(value ="/about" )
 	public String about(){
 		return "about";
 	}
-	@RequestMapping(value ="/product",headers="X-PJAX=true")
+	@RequestMapping(value ="/product")
 	public String product(){
 		return "product";
 	}
-	@RequestMapping(value ="/news",headers="X-PJAX=true")
+	@RequestMapping(value ="/news")
 	public String news(){
 		return "news";
 	}

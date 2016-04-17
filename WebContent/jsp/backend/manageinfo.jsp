@@ -14,8 +14,7 @@
         </div>
 
         <div class="content">
-            <div class="navigator">
-            </div>
+	          <%@include file="/jsp/backend/navigator.jsp" %>
               <div class="info">
              
             </div>
