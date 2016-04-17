@@ -75,7 +75,7 @@ public class UserController {
 	public String findAllUser(HttpServletRequest request) {
 		List<User> listUser = userService.findAllUser();
 		request.setAttribute("listUser", listUser);
-		return "/allUser";
+		return "/backend/allUser";
 	}
 
 	@RequestMapping("/tologin")
@@ -91,7 +91,7 @@ public class UserController {
 	
 	@RequestMapping("/gotologin")
 	public String tologin() {
-		return "/login";
+		return "/backend/login";
 	}
 	
 	@RequestMapping("/gotoreg")
