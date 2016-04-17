@@ -7,7 +7,7 @@
 <title>企业网站管理后台</title>
 </head>
 <body>
-<div>
+<div id="header">
 </div>
 </body>
 </html>
