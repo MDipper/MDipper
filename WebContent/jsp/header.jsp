@@ -39,7 +39,7 @@
 				<ul id="nav" class="navig">
 					<li><a   href="/" class="active"  >首页</a>
 						<div></div></li>
-					<li><a  href="/MDipper/about" class="scroll"  >关于</a>
+					<li><a  href="MDipper/about" class="scroll"  >关于</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -50,7 +50,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a  href="/MDipper/product" class="scroll"  >产品</a>
+					<li><a  href="MDipper/product" class="scroll"  >产品</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -61,7 +61,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a  href="/MDipper/news" class="scroll"  >新闻</a>
+					<li><a  href="MDipper/news" class="scroll"  >新闻</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -72,7 +72,7 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a  href="/MDipper/service" class="scroll"  >服务</a>
+					<li><a  href="MDipper/service" class="scroll"  >服务</a>
 						<div></div>
 						<div class="divbg"></div>
 						<div class="divul">
@@ -83,9 +83,9 @@
 							</ul>
 						</div>
 						<div></div></li>
-					<li><a  href="/MDipper/join" class="scroll"  >招聘</a>
+					<li><a  href="MDipper/join" class="scroll"  >招聘</a>
 						<div></div></li>
-					<li><a  href="/MDipper/contract" class="scroll"  >联系</a>
+					<li><a  href="MDipper/contract" class="scroll"  >联系</a>
 						<div></div></li>
 				</ul>
 			</div>
