@@ -13,11 +13,11 @@ public class pjaxController {
 	public String about(){
 		return "about";
 	}
-	@RequestMapping(value ="/product")
+	@RequestMapping(value ="/product",headers="X-PJAX=true")
 	public String product(){
 		return "product";
 	}
-	@RequestMapping(value ="/news")
+	@RequestMapping(value ="/news",headers="X-PJAX=true")
 	public String news(){
 		return "news";
 	}
