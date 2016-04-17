@@ -27,7 +27,7 @@ public class UserController {
 
 	private static Logger logger = Logger.getLogger(UserController.class);
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/reg", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> addUser(@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -77,9 +77,26 @@ public class UserController {
 		request.setAttribute("listUser", listUser);
 		return "/allUser";
 	}
-	
+
 	@RequestMapping("/tologin")
+	public String redirectToLogin() {
+		return "redirect:gotologin";
+	}
+	
+	@RequestMapping("/toreg")
+	public String redirectToRegister()
+	{
+		return "redirect:gotoreg";
+	}
+	
+	@RequestMapping("/gotologin")
 	public String tologin() {
-		return "/backend/login";
+		return "/login";
+	}
+	
+	@RequestMapping("/gotoreg")
+	public String toreg()
+	{
+		return "/register";
 	}
 }

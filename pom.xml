@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
  <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springversion>4.2.0.RELEASE</springversion>
+		<springversion>4.0.6.RELEASE</springversion>
 		<junitversion>3.8.1</junitversion>
 	</properties>
 	<dependencies>
@@ -131,6 +131,7 @@
 	<artifactId>jackson-mapper-asl</artifactId>
 	<version>1.9.13</version>
 </dependency>
+
  <dependency>  
             <groupId>com.fasterxml.jackson.core</groupId>  
             <artifactId>jackson-databind</artifactId>  
@@ -139,7 +140,7 @@
 <dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.3.1</version>
+			<version>3.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -156,6 +157,12 @@
 	<artifactId>log4j</artifactId>
 	<version>1.2.17</version>
 </dependency>
+<dependency>
+	<groupId>com.sun.mail</groupId>
+	<artifactId>javax.mail</artifactId>
+	<version>1.5.5</version>
+</dependency>
+
 </dependencies>
   <build>
     <finalName>MDipper</finalName>

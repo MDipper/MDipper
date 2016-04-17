@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mapper.UserMapper;
 import com.model.User;
 import com.service.UserService;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 @SuppressWarnings("restriction")
 @Service
@@ -18,7 +19,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Resource
 	public UserMapper userMapper;
-	
 	
 	@Override
 	public int  addUser(User user){
@@ -40,5 +40,4 @@ public class UserServiceImpl implements UserService {
 	{
 		return userMapper.findAllUser();
 	}
-
 }
