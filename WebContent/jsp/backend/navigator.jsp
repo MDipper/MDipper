@@ -1,11 +1,7 @@
 <meta charset="UTF-8">
-<title>Basic Tree - jQuery EasyUI Demo</title>
-<link rel="stylesheet" type="text/css" href="${js}/jquery-easyui-1.4.5/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href=".${js}/jquery-easyui-1.4.5/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="${js}/jquery-easyui-1.4.5/demo.css">
-<script type="text/javascript" src="${js}/jquery-easyui-1.4.5/jquery.min.js"></script>
-<script type="text/javascript" src="${js}/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
-<div id="navigator" class="easyui-panel" style="padding:5px">
+
+	<div data-options="region:'west' ,split:true"  title="West" 
+	class="easyui-panel"   style="width: 200px;padding:5px">
 		<ul class="easyui-tree">
 			<li>
 				<span>My Documents</span>
@@ -40,4 +36,3 @@
 			</li>
 		</ul>
 	</div>
- 
