@@ -31,13 +31,13 @@
 		<div class="header" id="home">
 		<div class="container">
 			<div class="logo">
-				<a href="/"> <img src="${image}/logo.png" />
+				<a href="#"> <img src="${image}/logo.png" />
 				</a>
 			</div>
 			<div class="navigation">
 				<span class="menu"></span>
 				<ul id="nav" class="navig">
-					<li><a   href="/" class="active"  >首页</a>
+					<li><a   href="#" class="active"  >首页</a>
 						<div></div></li>
 					<li><a  href="${ctx}/main/about" class="scroll"  >关于</a>
 						<div></div>
