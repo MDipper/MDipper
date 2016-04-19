@@ -10,4 +10,12 @@
 				CONTRACT 联系</div>
 		</div>
 	</div>
+	<div>
+		<p>地址：南京市栖霞区文苑路</p>
+		<p>邮编：210046</p>
+		<p>联系人：MDipper</p>
+		<p>联系电话：123 4567 8910</p>
+		<p>传真：025-12345678 025-87654321</p>
+		<p>E-mail：marketing@MDipper.com</p>
+	</div>
 </div>

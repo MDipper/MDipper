@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/jsp/about.jsp=UTF-8
+encoding//WebContent/jsp/about/aboutus.jsp=UTF-8
 encoding//WebContent/jsp/backend/backheader.jsp=UTF-8
 encoding//WebContent/jsp/backend/manageinfo.jsp=UTF-8
 encoding//WebContent/jsp/backend/navigator.jsp=UTF-8
