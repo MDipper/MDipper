@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/main")
 public class pjaxController {
-
+	@RequestMapping(value ="/index" )
+	public String index(){
+		return "index";
+	}
 	@RequestMapping(value ="/about" )
 	public String about(){
 		return "about";

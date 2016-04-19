@@ -20,7 +20,7 @@
 }
 html, body footer{
   font-size: 100%;
-  background: #fff;
+  background: #ffffff;
   font-family: 'Titillium Web', sans-serif;
 }
 body {
@@ -84,7 +84,8 @@ ul.navig li a {
   border-bottom: 2px solid #fff;
   margin: 0 4px;
 }
-ul.navig li a:hover, ul.navig li a.active {
+
+ul.navig li a:hover , ul.navig li a.active{
   color: #ff0030;
   border-bottom: 2px solid #ff0030;
   transition: 0.5s all;
