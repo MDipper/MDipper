@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/commons/tag_libs.jsp"%>
 <div id="main">
 	<div class="slider">
 		<ul class="rslides" id="slider">

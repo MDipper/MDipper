@@ -27,7 +27,7 @@
 			<div class="navigation">
 				<span class="menu"></span>
 				<ul id="nav" class="navig">
-					<li><a href="${ctx}" class="active">首页</a>
+					<li><a href="${ctx}/main/index" class="active">首页</a>
 						<div></div></li>
 					<li><a href="${ctx}/main/about">关于</a>
 						<div></div>
