@@ -7,8 +7,8 @@ $(function() {
 	});
 });
 $(function() {
-	$("#nav li a").click(function() {
-		$("#nav li a").removeClass("active");
+	$("#home #nav a").click(function() {
+		$("#home #nav a").removeClass("active");
 		$(this).addClass("active");
 	})
 });

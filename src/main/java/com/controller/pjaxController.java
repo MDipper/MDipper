@@ -37,4 +37,16 @@ public class pjaxController {
 	public String contract(){
 		return "contract";
 	}
+	@RequestMapping(value ="/plan")
+	public String plan(){
+		return "/service/plan";
+	}	
+	@RequestMapping(value ="/teamwork")
+	public String teamwork(){
+		return "/service/teamwork";
+	}
+	@RequestMapping(value ="/client")
+	public String client(){
+		return "/service/client";
+	}
 }

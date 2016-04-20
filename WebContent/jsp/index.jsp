@@ -8,7 +8,8 @@
 <script src="${js}/jquery.pjax.js"></script>
   <script>
   $(document).ready(function(){
-  	$(document).pjax('a', '#main')    	
+  	$(document).pjax('#home #nav a', '#main');  
+  	$(document).pjax('#servicemenu #nav a', '#serviceshow');  
   });
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
