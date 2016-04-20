@@ -53,10 +53,14 @@
 	display: table;
 }
 
-#aboutmenu .aboutactive div:before {
+#aboutmenu .aboutactive:before {
 	background: red;
 	border: 4px solid red;
 	color: white;
+}
+#aboutmenu .aboutactive a {
+	color: white;
+	border-bottom: 0px;
 }
 </style>
 <script>
