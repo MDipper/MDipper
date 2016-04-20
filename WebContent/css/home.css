@@ -210,3 +210,15 @@ ul.callbacks_tabs.callbacks2_tabs {
   z-index: 2;
   left: 45%;
 }
+ul.callbacks_tabs.callbacks3_tabs {
+  position: absolute;
+  bottom: 10%;
+  z-index: 2;
+  left: 47%;
+}
+ul.callbacks_tabs.callbacks4_tabs {
+  position: absolute;
+  bottom: 10%;
+  z-index: 2;
+  left: 45%;
+}
