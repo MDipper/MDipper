@@ -14,6 +14,12 @@
 	</properties>
 	<dependencies>
 	<dependency>
+	<groupId>com.baomidou</groupId>
+	<artifactId>kisso</artifactId>
+	<version>3.6.5</version>
+</dependency>
+	
+	<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junitversion}</version>

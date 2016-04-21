@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class pjaxController {
 	@RequestMapping(value ="/index" )
 	public String index(){
-		return "index";
+		return "main";
 	}
 	@RequestMapping(value ="/about" )
 	public String about(){

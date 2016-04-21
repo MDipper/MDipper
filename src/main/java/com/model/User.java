@@ -1,7 +1,7 @@
 package com.model;
 
 public class User {
-
+	private Long id;
 	private String username;
 	private String password;;
 	
@@ -12,6 +12,7 @@ public class User {
 	
 	public User( String username,  String password) {
 		super();
+		this.id=null;
 		this.username = username;
 		this.password = password;
 	}

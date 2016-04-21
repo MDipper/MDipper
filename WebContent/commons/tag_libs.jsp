@@ -3,3 +3,4 @@
 <c:set var="css" value="${ctx}/css"></c:set>
 <c:set var="js" value="${ctx}/js"></c:set>
 <c:set var="image" value="${ctx}/image"></c:set>
+<c:set var="resource" value="${ctx}/resource"></c:set>
