@@ -13,11 +13,43 @@
 	rel="stylesheet">
 <link href="${resource}/css/animate.min.css" rel="stylesheet">
 <link href="${resource}/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+<!--校验文本框  -->
+<script src="${js}/jquery-1.11.1.js" ></script>
+<script src="${js}/jquery.validate.min.js"></script>
+<script src="${js}/messages_zh.js" ></script>
 <base target="_blank">
 <script>
 	if (window.top !== window.self) {
 		window.top.location = window.location;
 	}
+</script>
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function() {
+		$.post(
+				// 接收数据的页面
+				'${ctx}/account/login',
+				// 传给后台的数据，多个参数用&连接或者使用json格式数据：{a:'value1',b:'value2'}
+				{
+					username: $("#username").val(),
+					password: $("#password").val()
+				},
+				function(data) {
+					if (data.code == '200') {
+						alert("msg: "+data.msg+"\n"+"即将跳转。");
+					} else if (data.code == '400') {
+						alert(data.msg);
+					}
+				},
+				// 默认返回字符串，设置值等于json则返回json数据
+				'json'
+		).error(function(){
+			alert("登录失败，请稍后再试。");
+		});
+	}
+});
+
 </script>
 </head>
 
@@ -31,14 +63,15 @@
 
 			</div>
 			<h3>欢迎使用后台管理系统</h3>
-			<form class="m-t" role="form" action="${ctx }/account/login">
+			<form id="signupForm" class="m-t" role="form" method="post"
+				action="${ctx }/account/login">
 				<div class="form-group">
-					<input type="text" id="username" name="username" class="form-control"
-						placeholder="用户名" required="">
+					<input type="text" id="username" name="username"
+						class="form-control" placeholder="用户名" required="">
 				</div>
 				<div class="form-group">
-					<input type="password" id="password" name="password" class="form-control"
-						placeholder="密码" required="">
+					<input type="password" id="password" name="password"
+						class="form-control" placeholder="密码" required="">
 				</div>
 				<button type="submit" class="btn btn-primary block full-width m-b">登
 					录</button>
@@ -46,7 +79,7 @@
 
 				<p class="text-muted text-center">
 					<a href="#"><small>忘记密码了？</small></a> | <a
-						href="${ctx}/account/register">注册一个新账号</a>
+						href="${ctx}/account/gotoregister">注册一个新账号</a>
 				</p>
 
 			</form>

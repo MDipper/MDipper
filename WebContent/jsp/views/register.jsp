@@ -17,8 +17,88 @@
 <link href="${resource}/css/plugins/iCheck/custom.css" rel="stylesheet">
 <link href="${resource}/css/animate.min.css" rel="stylesheet">
 <link href="${resource}/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+<!--校验文本框  -->
+<script src="${js}/jquery-1.11.1.js" ></script>
+<script src="${js}/jquery.validate.min.js" ></script>
+<script src="${js}/messages_zh.js" ></script>
 <base target="_blank">
 <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+<script type="text/javascript" >
+$.validator.setDefaults({
+	submitHandler: function() {
+		$.post(
+				// 接收数据的页面
+				'${ctx}/account/register',
+				// 传给后台的数据，多个参数用&连接或者使用json格式数据：{a:'value1',b:'value2'}
+				{
+					username: $("#username").val(),
+					password: $("#password").val()
+				},
+				function(data) {
+					if (data.code == '200') {
+						alert("msg: "+data.msg+"\n"+"即将跳转。");
+					} else if (data.code == '400') {
+						alert(data.msg);
+					}
+				},
+				// 默认返回字符串，设置值等于json则返回json数据
+				'json'
+		).error(function(){
+			alert("注册失败，请稍后再试。");
+		});
+	}
+});
+
+$().ready(function() {
+	// validate the comment form when it is submitted
+	$("#signupForm").validate({
+		rules: {
+		      username: {
+		        required: true,
+		        minlength: 2,
+		        remote: {
+				    url: "${ctx}/account/check_user",     //后台处理程序
+				    type: "get",                //数据发送方式
+				    dataType: "json",           //接受数据格式   
+				    data: {                     //要传递的数据
+				        username: function() {
+				            return $("#username").val();
+				        },
+					    password: function() {
+				            return $("#password").val();
+				        }
+				    }
+				}
+		      },
+		      password: {
+		        required: true,
+		        minlength: 6
+		      },
+		      confirm_password: {
+		        required: true,
+		        minlength: 6,
+		        equalTo: "#password"
+		      }		      
+		    },
+		    messages: {
+		      username: {
+		        required: "请输入用户名",
+		        minlength: "用户名至少由两个字符组成"
+		      },
+		      password: {
+		        required: "请输入密码",
+		        minlength: "密码长度不能小于 6 个字母"
+		      },
+		      confirm_password: {
+		        required: "请输入密码",
+		        minlength: "密码长度不能小于 6 个字母",
+		        equalTo: "两次密码输入不一致"
+		      }
+		    }		
+	});
+});
+</script>
 </head>
 
 <body class="gray-bg">
@@ -32,7 +112,7 @@
 			</div>
 			<h3>欢迎注册</h3>
 			<p>创建一个新账户</p>
-			<form class="m-t" role="form" action="${ctx }/account/register">
+			<form id="signupForm" class="m-t" role="form" method="post"  action="${ctx }/account/login" >
 				<div class="form-group">
 					<input type="text"  id= "username" name="username" class="form-control" placeholder="请输入用户名"
 						required="">
@@ -56,7 +136,7 @@
 					册</button>
 
 				<p class="text-muted text-center">
-					<small>已经有账户了？</small><a href="${ctx }/account/login">点此登录</a>
+					<small>已经有账户了？</small><a href="${ctx }/account/gotologin">点此登录</a>
 				</p>
 
 			</form>

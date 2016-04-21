@@ -18,8 +18,8 @@
 	<insert id="addUser"   parameterType="User">
 		insert into user(username, password) values(#{username}, #{password})
 	</insert>
-	<select id="checkUsernamePassword" resultType="int" parameterType="User">
-		select count(1) from user WHERE username=#{username} AND password=#{password}
+	<select id="checkUsernamePassword" resultType="User" parameterType="User">
+		select * from user WHERE username=#{username} AND password=#{password}
 	</select>
 	<select id="findAllUser" resultMap="userResultMap" resultType="User">
 		select * from user
