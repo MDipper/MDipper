@@ -33,11 +33,11 @@
 			<h3>欢迎使用后台管理系统</h3>
 			<form class="m-t" role="form" action="${ctx }/account/login">
 				<div class="form-group">
-					<input type="text" name="loginName" class="form-control"
+					<input type="text" id="username" name="username" class="form-control"
 						placeholder="用户名" required="">
 				</div>
 				<div class="form-group">
-					<input type="password" name="password" class="form-control"
+					<input type="password" id="password" name="password" class="form-control"
 						placeholder="密码" required="">
 				</div>
 				<button type="submit" class="btn btn-primary block full-width m-b">登
@@ -46,7 +46,7 @@
 
 				<p class="text-muted text-center">
 					<a href="#"><small>忘记密码了？</small></a> | <a
-						href="${ctx }/account/register">注册一个新账号</a>
+						href="${ctx}/account/register">注册一个新账号</a>
 				</p>
 
 			</form>

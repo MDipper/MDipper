@@ -34,15 +34,15 @@
 			<p>创建一个新账户</p>
 			<form class="m-t" role="form" action="${ctx }/account/register">
 				<div class="form-group">
-					<input type="text"  name="loginName" class="form-control" placeholder="请输入用户名"
+					<input type="text"  id= "username" name="username" class="form-control" placeholder="请输入用户名"
 						required="">
 				</div>
 				<div class="form-group">
-					<input type="password" name="password" class="form-control" placeholder="请输入密码"
+					<input type="password" id="password" name="password" class="form-control" placeholder="请输入密码"
 						required="">
 				</div>
 				<div class="form-group">
-					<input type="password" name="repassword" class="form-control" placeholder="请再次输入密码"
+					<input type="password" id="repassword"name="repassword" class="form-control" placeholder="请再次输入密码"
 						required="">
 				</div>
 				<div class="form-group text-left">

@@ -28,11 +28,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public int checkUserByUsername(String username) {
+	public User checkUserByUsername(String username) {
 		// TODO Auto-generated method stub
 		return userMapper.checkUserByUsername(username);
 	}
-	public int checkUsernamePassword(User user)
+	public User checkUsernamePassword(User user)
 	{
 		return userMapper.checkUsernamePassword(user);
 	}
@@ -40,4 +40,5 @@ public class UserServiceImpl implements UserService {
 	{
 		return userMapper.findAllUser();
 	}
+
 }
