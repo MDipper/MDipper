@@ -13,12 +13,12 @@
 		<junitversion>3.8.1</junitversion>
 	</properties>
 	<dependencies>
-	<dependency>
+<dependency>
 	<groupId>com.baomidou</groupId>
 	<artifactId>kisso</artifactId>
 	<version>3.6.5</version>
 </dependency>
-	
+
 	<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
