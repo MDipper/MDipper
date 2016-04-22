@@ -1,5 +1,9 @@
 package com.model;
 
+/**
+ * @author xiezhipeng
+ * @Date 2016-4-20
+ */
 public class User {
 	private Long id;
 	private String username;

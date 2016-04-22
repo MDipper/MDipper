@@ -11,31 +11,35 @@ import com.mapper.UserMapper;
 import com.model.User;
 import com.service.UserService;
 
+/**
+ * @author xiezhipeng
+ * @Date 2016-4-20
+ */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
+
 	@Resource
 	public UserMapper userMapper;
-	
+
 	@Override
-	public int  addUser(User user){
+	public int addUser(User user) {
 		// TODO Auto-generated method stub
-		int userid= userMapper.addUser(user);
+		int userid = userMapper.addUser(user);
 		return userid;
 	}
-	
+
 	@Override
 	public User checkUserByUsername(String username) {
 		// TODO Auto-generated method stub
 		return userMapper.checkUserByUsername(username);
 	}
-	public User checkUsernamePassword(User user)
-	{
+
+	public User checkUsernamePassword(User user) {
 		return userMapper.checkUsernamePassword(user);
 	}
-	public List<User> findAllUser()
-	{
+
+	public List<User> findAllUser() {
 		return userMapper.findAllUser();
 	}
 

@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/**
+ * @author chenchen
+ * @Date 2016-4-20
+ */
 public class CommonInterceptor extends HandlerInterceptorAdapter {
 
 	private final Logger logger = Logger.getLogger(CommonInterceptor.class);

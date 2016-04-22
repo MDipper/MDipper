@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.model.User;
 import com.service.UserService;
 
+/**
+ * @author xiezhipeng
+ * @Date 2016-4-20
+ */
 @RequestMapping("/account")
 @Controller
 public class AccountController {
@@ -28,16 +32,17 @@ public class AccountController {
 		return "views/register";
 	}
 
-	@RequestMapping(value = "/loginpost" , method = RequestMethod.POST)
+	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginpost(@RequestParam(value = "username") String username,
-			@RequestParam(value = "password") String password,HttpServletRequest request) {
+			@RequestParam(value = "password") String password,
+			HttpServletRequest request) {
 		User user = new User(username, password);
 		if (userService.checkUsernamePassword(user) != null) {
-			
-			request.setAttribute("userId",username);
+
+			request.setAttribute("userId", username);
 			return "views/index";
 		}
 		return "views/login";
 	}
-	
+
 }

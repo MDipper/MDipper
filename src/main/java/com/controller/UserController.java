@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.model.User;
 import com.service.UserService;
 
+/**
+ * @author xiezhipeng
+ * @Date 2016-4-20
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -27,7 +31,8 @@ public class UserController {
 	private static Logger logger = Logger.getLogger(UserController.class);
 
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> addUser(@RequestParam(value = "username") String username,
+	public @ResponseBody Map<String, Object> addUser(
+			@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (userService.checkUserByUsername(username) == null) {
@@ -45,7 +50,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/check_user")
-	public @ResponseBody String checkUserAvailable(@RequestParam(value = "username") String username) {
+	public @ResponseBody String checkUserAvailable(
+			@RequestParam(value = "username") String username) {
 		if (userService.checkUserByUsername(username) == null) {
 			return String.valueOf(true);
 		} else {
@@ -54,16 +60,19 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> login(@RequestParam(value = "username") String username,
+	public @ResponseBody Map<String, Object> login(
+			@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		User user = new User(username, password);
 		if (userService.checkUsernamePassword(user) != null) {
-			logger.debug(String.format("login success: name=%s password=%s", username, password));
+			logger.debug(String.format("login success: name=%s password=%s",
+					username, password));
 			map.put("code", "200");
 			map.put("msg", "登录成功！");
 		} else {
-			logger.warn(String.format("wrong login: name=%s password=%s", username, password));
+			logger.warn(String.format("wrong login: name=%s password=%s",
+					username, password));
 			map.put("code", "400");
 			map.put("msg", "您输入的帐号或密码有误");
 		}
@@ -81,21 +90,19 @@ public class UserController {
 	public String redirectToLogin() {
 		return "redirect:gotologin";
 	}
-	
+
 	@RequestMapping("/toreg")
-	public String redirectToRegister()
-	{
+	public String redirectToRegister() {
 		return "redirect:gotoreg";
 	}
-	
+
 	@RequestMapping("/gotologin")
 	public String tologin() {
 		return "/login";
 	}
-	
+
 	@RequestMapping("/gotoreg")
-	public String toreg()
-	{
+	public String toreg() {
 		return "/register";
 	}
 }
