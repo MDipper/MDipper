@@ -20,13 +20,11 @@
 	<div class="middle-box text-center loginscreen  animated fadeInDown">
 		<div>
 			<div>
-
 				<h1 class="logo-name">MD</h1>
-
 			</div>
 			<h3>欢迎使用后台管理系统</h3>
 			<form id="signupForm" class="m-t" role="form" method="post"
-				action="${ctx }/backend/index">
+				action="${ctx }/account/loginpost">
 				<div class="form-group">
 					<input type="text" id="username" name="username"
 						class="form-control" placeholder="用户名" required="">
@@ -41,7 +39,7 @@
 
 				<p class="text-muted text-center">
 					<a href="#"><small>忘记密码了？</small></a> | <a
-						href="${ctx}/account/gotoregister">注册一个新账号</a>
+						href="${ctx}/account/register">注册一个新账号</a>
 				</p>
 
 			</form>

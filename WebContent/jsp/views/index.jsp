@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@include file="/commons/tag_libs.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 </head>
-<body>
-主页
+<body style="text-align: center;margin-top: 168px;">
+	<h1>Kisso - SpringMvc</h1>
+	<div class="table_box">
+		<p>${userId} 欢迎来到 SpringMvc-SSO 极速开发世界！</p>
+		<br>
+		<a href="/logout.html">退出登录</a>
+	</div>
 </body>
 </html>

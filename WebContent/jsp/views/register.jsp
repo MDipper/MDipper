@@ -22,6 +22,7 @@
 <script src="${resource}/js/bootstrap.min.js?v=3.3.5"></script>
 
 
+
 </head>
 
 <body class="gray-bg">
@@ -66,6 +67,11 @@
 			</form>
 		</div>
 	</div>
+
+	<script src="${resource}/js/plugins/iCheck/icheck.min.js"></script>
+	<script>
+        $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
+    </script>
 </body>
 
 </html>
