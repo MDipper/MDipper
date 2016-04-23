@@ -18,10 +18,10 @@
 				</span>
 				</a>
 				<ul class="dropdown-menu animated fadeInRight m-t-xs">
-					<li><a class="J_menuItem" href="form_avatar.html">修改头像</a></li>
-					<li><a class="J_menuItem" href="profile.html">个人资料</a></li>
-					<li><a class="J_menuItem" href="contacts.html">联系我们</a></li>
-					<li><a class="J_menuItem" href="mailbox.html">信箱</a></li>
+					<li><a class="J_menuItem" href="">修改头像</a></li>
+					<li><a class="J_menuItem" href="">个人资料</a></li>
+					<li><a class="J_menuItem" href="">联系我们</a></li>
+					<li><a class="J_menuItem" href="">信箱</a></li>
 					<li class="divider"></li>
 					<li><a href="${ctx}/account/login">安全退出</a></li>
 				</ul>
@@ -34,8 +34,8 @@
 			<ul class="nav nav-second-level">
 				<li><a class="J_menuItem" href="${ctx}/backend/notice" data-index="0">系统公告</a></li>
 				<li><a class="J_menuItem" href="${ctx}/backend/usermanage">用户管理</a></li>
-				<li><a class="J_menuItem" href="index_v3.html">新闻管理</a></li>
-				<li><a class="J_menuItem" href="index_v4.html">企业管理</a></li>
+				<li><a class="J_menuItem" href="">新闻管理</a></li>
+				<li><a class="J_menuItem" href="">企业管理</a></li>
 			</ul></li>
 
 	</ul>

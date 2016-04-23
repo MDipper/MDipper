@@ -2,54 +2,206 @@
 	pageEncoding="utf-8"%>
 <%@include file="/commons/tag_libs.jsp"%>
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
- <meta name="viewport" content="width=device-width" />
- <title>BootStrap Table使用</title>
- 
-  
- <script src="${resource}/js/plugins/bootstrap-table/bootstrap-table.js"></script>
- <link href="${resource}/js/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />
- <script src="${resource}/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
-  
- <script src="${js}/table.js"></script>
+
+<link href="${css}/bootstrap.min.css"  rel="stylesheet"/>
+<link href="${css}/bootstrap-table.css" rel="stylesheet"/>
+<link href="${css}/bootstrap-editable.css" rel="stylesheet"/>
+<script src="${js}/jquery-1.11.1.js" ></script>
+<script src="${js}/bootstrap.min.js" ></script>
+<script src="${js}/bootstrap-table.js" ></script>
+<script src="${js}/bootstrap-table-zh-CN.js" ></script>
+<script src="${js}/bootstrap-table-export.js" ></script>
+<script src="${js}/tableExport.js" ></script>
+<script src="${js}/bootstrap-table-editable.js" ></script>
+<script src="${js}/bootstrap-editable.min.js" ></script>
+<script>
+	$(document).ready(function() {
+		var $table = $('#table'),
+        	$remove = $('#remove'),
+        	selections = [];
+		$table.bootstrapTable({
+			url : '/backend/ajaxAllUser',
+			height: $(window).height() - $('h1').outerHeight(true),
+			pagination : true,
+			search : true,
+			searchOnEnterKey : true,
+			showFooter : true,
+			showColumns : true,
+			showRefresh : true,
+			showToggle : true,
+			showPaginationSwitch : true,
+			showExport : true,
+			showFooter : true,
+			detailView : true,
+			detailFormatter : function(index, row){
+				var html = [];
+		        $.each(row, function (key, value) {
+		            html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+		        });
+		        return html.join('');
+			},
+			idField : "id",
+			uniqueId : "id",
+			clickToSelect : true,
+			toolbar: "#toolbar",
+			responseHandler : function (res) {
+		        $.each(res, function (i, row) {
+		            row.state = $.inArray(row.id, selections) !== -1;
+		        });
+		        return res;
+		    },
+			columns : [
+		                [
+		                    {
+		                    	title: '状态',
+		                        field: 'state',
+		                        checkbox: true,
+		                        rowspan: 2,
+		                        align: 'center',
+		                        valign: 'middle'
+		                    }, {
+		                        title: '用户ID',
+		                        field: 'id',
+		                        rowspan: 2,
+		                        align: 'center',
+		                        valign: 'middle',
+		                        sortable: true,
+		                        footerFormatter: function(data){return "总数";}
+		                    }, {
+		                        title: '详细信息',
+		                        colspan: 3,
+		                        align: 'center'
+		                    }
+		                ],
+		                [
+		                    {
+		                        field: 'username',
+		                        title: '用户名',
+		                        sortable: true,
+		                        editable: true,
+		                        align: 'center',
+		                        editable: {
+		                            type: 'text',
+		                            title: '用户名',
+		                            validate: function (value) {
+		                                value = $.trim(value);
+		                                if (!value) {
+		                                    return '不能为空';
+		                                }
+		                                var data = $table.bootstrapTable('getData'),
+		                                    index = $(this).parents('tr').data('index');
+		                                console.log(data[index]);
+		                                return '';
+		                            }
+		                        },
+		                        footerFormatter: function(data){return data.length;}
+		                    }, {
+		                        field: 'password',
+		                        title: '密码',
+		                        sortable: true,
+		                        align: 'center',
+		                        editable: {
+		                            type: 'text',
+		                            title: '密码',
+		                            validate: function (value) {
+		                                value = $.trim(value);
+		                                if (!value) {
+		                                    return '不能为空';
+		                                }
+		                                var data = $table.bootstrapTable('getData'),
+		                                    index = $(this).parents('tr').data('index');
+		                                console.log(data[index]);
+		                                return '';
+		                            }
+		                        },
+		                        footerFormatter: function(data){return data.length;}
+		                    }, {
+		                        field: 'operate',
+		                        title: '操作',
+		                        align: 'center',
+		                        events: {
+		                            'click .like': function (e, value, row, index) {
+		                                alert('你点击了喜欢按钮，信息： ' + JSON.stringify(row));
+		                            },
+		                            'click .remove': function (e, value, row, index) {
+		                                $table.bootstrapTable('remove', {
+		                                    field: 'id',
+		                                    values: [row.id]
+		                                });
+		                            }
+		                        },
+		                        formatter: function(value, row, index) {
+		                            return [
+		                                    '<a class="like" href="javascript:void(0)" title="喜欢">',
+		                                    '<i class="glyphicon glyphicon-heart"></i>',
+		                                    '</a>  ',
+		                                    '<a class="remove" href="javascript:void(0)" title="删除">',
+		                                    '<i class="glyphicon glyphicon-remove"></i>',
+		                                    '</a>'
+		                                ].join('');
+		                            }
+		                    }
+		                ]
+		            ],
+		});
+		
+		// sometimes footer render error.
+		setTimeout(function () {
+            $table.bootstrapTable('resetView');
+        }, 200);
+		
+		$table.on('check.bs.table uncheck.bs.table ' +
+                'check-all.bs.table uncheck-all.bs.table', function () {
+            $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+
+            // save your data, here just save the current page
+            selections = $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id
+            });
+            // push or splice the selections if you want to save all data selections
+        });
+		
+		$table.on('all.bs.table', function (e, name, args) {
+	        console.log(name, args);
+	    });
+		
+		$remove.click(function () {
+            var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id
+            });
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+            $remove.prop('disabled', true);
+        });
+		
+        $(window).resize(function () {
+            $table.bootstrapTable('resetView', {
+                height: $(window).height() - $('h1').outerHeight(true)
+            });
+        });
+	});
+</script>
 </head>
+
 <body>
- <div class="panel-body" style="padding-bottom:0px;">
-  <div class="panel panel-default">
-   <div class="panel-heading">查询条件</div>
-   <div class="panel-body">
-    <form id="formSearch" class="form-horizontal">
-     <div class="form-group" style="margin-top:15px">
-      <label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>
-      <div class="col-sm-3">
-       <input type="text" class="form-control" id="txt_search_departmentname">
-      </div>
-      <label class="control-label col-sm-1" for="txt_search_statu">状态</label>
-      <div class="col-sm-3">
-       <input type="text" class="form-control" id="txt_search_statu">
-      </div>
-      <div class="col-sm-4" style="text-align:left;">
-       <button type="button" style="margin-left:50px" id="btn_query" class="btn btn-primary">查询</button>
-      </div>
-     </div>
-    </form>
-   </div>
-  </div>  
- 
-  <div id="toolbar" class="btn-group">
-   <button id="btn_add" type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
-   </button>
-   <button id="btn_edit" type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
-   </button>
-   <button id="btn_delete" type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
-   </button>
-  </div>
-  <table id="tb_departments"></table>
- </div>
+	<div class="container">
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span6">
+				<div id="toolbar">
+        			<button id="remove" class="btn btn-danger" disabled>
+            			<i class="glyphicon glyphicon-remove"></i> 删除
+        			</button>
+    			</div>
+				<table id="table"></table>
+			</div>
+			<div class="span4"></div>
+		</div>
+	</div>
 </body>
 </html>

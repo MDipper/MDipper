@@ -28,11 +28,13 @@ import com.service.UserService;
 public class AccountController {
 	@Autowired
 	private UserService userService;
-	/*
-	 * @Autowired protected HttpServletRequest request;
-	 * 
-	 * @Autowired protected HttpServletResponse response;
-	 */
+
+	@Autowired
+	protected HttpServletRequest request;
+
+	@Autowired
+	protected HttpServletResponse response;
+
 	private static Logger logger = Logger.getLogger(UserController.class);
 
 	@Login(action = Action.Skip)
@@ -100,7 +102,7 @@ public class AccountController {
 			st.setId(userid);
 			st.setUid(username_);
 			st.setType(1);
-			logger.debug(String.format("st.getId=%s",st.getId()));
+			logger.debug(String.format("st.getId=%s", st.getId()));
 
 			// 记住密码，设置 cookie 时长 1 天 = 86400 秒 【动态设置 maxAge 实现记住密码功能】
 			/*

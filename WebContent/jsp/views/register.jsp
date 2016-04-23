@@ -128,13 +128,6 @@ $().ready(function() {
 					<input type="password" id="repassword" name="repassword"
 						class="form-control" placeholder="请再次输入密码" required="">
 				</div>
-				<div class="form-group text-left">
-					<div class="checkbox i-checks">
-						<label class="no-padding"> <input type="checkbox"><i></i>
-							我同意注册协议
-						</label>
-					</div>
-				</div>
 				<button type="submit" class="btn btn-primary block full-width m-b">注
 					册</button>
 
@@ -146,10 +139,6 @@ $().ready(function() {
 		</div>
 	</div>
 
-	<script src="${resource}/js/plugins/iCheck/icheck.min.js"></script>
-	<script>
-        $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
-    </script>
 </body>
 
 </html>

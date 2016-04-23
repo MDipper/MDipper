@@ -28,6 +28,8 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/html/**" location="/html/" />
 	<mvc:resources mapping="/resource/**" location="/resource/" />
+	<mvc:resources mapping="/fonts/**" location="/fonts/" />
+	
 
 <bean id="kissoInit" class="com.baomidou.kisso.web.WebKissoConfigurer" init-method="initKisso">
 		<property name="ssoPropPath" value="sso.properties" />
@@ -48,6 +50,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/account/*" />
 			<mvc:mapping path="/permission/*" />
+			<mvc:mapping path="/backend/*" />
 			<bean class="com.baomidou.kisso.web.interceptor.SSOSpringInterceptor" />
 		</mvc:interceptor>		
 	</mvc:interceptors>

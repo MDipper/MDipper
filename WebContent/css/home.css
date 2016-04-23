@@ -2,9 +2,8 @@
   padding: 0;
   position: relative;
 }
-html{
-	  background:#f6f6f6;
-}
+
+html { overflow-y: scroll; }
 .container {
   width: 90%;
   padding-right: 15px;

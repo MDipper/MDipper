@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	<%@include file="/commons/tag_libs.jsp"%>
+<%@include file="/commons/tag_libs.jsp"%>
 <div id="page-wrapper" class="gray-bg dashbard-1">
 	<div class="row border-bottom">
 		<nav class="navbar navbar-static-top" role="navigation"
@@ -25,7 +25,7 @@
 						<li class="m-t-xs">
 							<div class="dropdown-messages-box">
 								<a href="#" class="pull-left"> <img alt="image"
-									class="img-circle" src="img/a7.jpg">
+									class="img-circle" src="">
 								</a>
 								<div class="media-body">
 									<small class="pull-right">46小时前</small> <strong>新闻</strong>
@@ -38,7 +38,7 @@
 						<li>
 							<div class="dropdown-messages-box">
 								<a href="#" class="pull-left"> <img alt="image"
-									class="img-circle" src="img/a4.jpg">
+									class="img-circle" src="">
 								</a>
 								<div class="media-body ">
 									<small class="pull-right text-navy">25小时前</small> <strong>新闻联播</strong>
@@ -49,8 +49,8 @@
 						<li class="divider"></li>
 						<li>
 							<div class="text-center link-block">
-								<a class="J_menuItem" href="mailbox.html"> <i
-									class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
+								<a class="J_menuItem" href=""> <i class="fa fa-envelope"></i>
+									<strong> 查看所有消息</strong>
 								</a>
 							</div>
 						</li>
@@ -60,14 +60,14 @@
 						class="label label-primary">8</span>
 				</a>
 					<ul class="dropdown-menu dropdown-alerts">
-						<li><a href="mailbox.html">
+						<li><a href="">
 								<div>
 									<i class="fa fa-envelope fa-fw"></i> 您有16条未读消息 <span
 										class="pull-right text-muted small">4分钟前</span>
 								</div>
 						</a></li>
 						<li class="divider"></li>
-						<li><a href="profile.html">
+						<li><a href="">
 								<div>
 									<i class="fa fa-qq fa-fw"></i> 3条新回复 <span
 										class="pull-right text-muted small">12分钟钱</span>
@@ -76,8 +76,8 @@
 						<li class="divider"></li>
 						<li>
 							<div class="text-center link-block">
-								<a class="J_menuItem" href="notifications.html"> <strong>查看所有
-								</strong> <i class="fa fa-angle-right"></i>
+								<a class="J_menuItem" href=""> <strong>查看所有 </strong> <i
+									class="fa fa-angle-right"></i>
 								</a>
 							</div>
 						</li>
@@ -95,8 +95,7 @@
 		</button>
 		<nav class="page-tabs J_menuTabs">
 			<div class="page-tabs-content">
-				<a href="javascript:;" class="active J_menuTab"
-					data-id="index_v1.html">首页</a>
+				<a href="javascript:;" class="active J_menuTab" data-id="">首页</a>
 			</div>
 		</nav>
 		<button class="roll-nav roll-right J_tabRight">
@@ -119,8 +118,7 @@
 	</div>
 	<div class="row J_mainContent" id="content-main">
 		<iframe class="J_iframe" name="iframe0" width="100%" height="100%"
-			src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html"
-			seamless></iframe>
+			src="" frameborder="0" data-id="" seamless></iframe>
 	</div>
 	<div class="footer">
 		<div class="pull-right">&copy; 2016 MDipper</div>
