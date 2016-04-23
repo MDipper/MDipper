@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.io.IOException;
 import java.util.*;
 
 import javax.servlet.http.*;
@@ -16,7 +15,6 @@ import com.baomidou.kisso.common.encrypt.SaltEncoder;
 import com.baomidou.kisso.web.waf.request.WafRequestWrapper;
 import com.model.User;
 import com.service.UserService;
-import com.utils.CaptchaUtil;
 
 /**
  * @author xiezhipeng
@@ -27,8 +25,9 @@ import com.utils.CaptchaUtil;
 public class AccountController {
 	@Autowired
 	private UserService userService;
-
+	@Autowired
 	protected HttpServletRequest request;
+	@Autowired
 	protected HttpServletResponse response;
 
 	private static Logger logger = Logger.getLogger(UserController.class);
@@ -36,9 +35,10 @@ public class AccountController {
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/login")
 	public String login() {
-		
+
 		return "views/login";
 	}
+
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/register")
 	public String register() {
@@ -71,17 +71,8 @@ public class AccountController {
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> loginpost(
 			@RequestParam(value = "username") String username,
-			@RequestParam(value = "password") String password,
-			@RequestParam(value = "verify") String verify) {
+			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		String verifyCode = String.valueOf(request.getSession().getAttribute(
-				"verify"));
-		if (!verifyCode.equalsIgnoreCase(verify)) {
-			map.put("code", "400");
-			map.put("msg", "验证码错误");
-			return map;
-		}
-		request.getSession().removeAttribute("verify");
 		/**
 		 * 生产环境需要过滤sql注入
 		 */
@@ -131,23 +122,6 @@ public class AccountController {
 			return String.valueOf(true);
 		} else {
 			return String.valueOf(false);
-		}
-	}
-
-	/**
-	 * 验证码 （注解跳过权限验证）
-	 */
-	@Login(action = Action.Skip)
-	@ResponseBody
-	@RequestMapping("/verify")
-	public void verify() {
-		try {
-			String verifyCode = CaptchaUtil.outputImage(response
-					.getOutputStream());
-			request.getSession().setAttribute("verify", verifyCode);// 把验证码存入session
-			logger.debug(String.format("verify code: %s", verifyCode));
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 

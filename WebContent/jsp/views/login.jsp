@@ -15,6 +15,9 @@
 <script src="${resource}/js/jquery.min.js?v=2.1.4"></script>
 <script src="${resource }/js/bootstrap.min.js?v=3.3.5"></script>
 
+ <link href="${resource }/css/bootstrapValidator.css" rel="stylesheet" />
+<script src="${resource }/js/bootstrapValidator.js"></script>
+
 <script src="${js }/jquery.validate.min.js"></script>
 <script src="${js }/messages_zh.js"></script>
 
@@ -38,8 +41,7 @@
 			// 传给后台的数据，多个参数用&连接或者使用json格式数据：{a:'value1',b:'value2'}
 			{
 				username : $("#username").val(),
-				password : $("#password").val(),
-				verify : $("#verify").val()
+				password : $("#password").val()
 			}, function(data) {
 				if (data.code == '200') {
 					alert("msg: " + data.msg + "\n" + "即将跳转。");
@@ -57,8 +59,9 @@
 	});
 
 	$(document).ready(function() {
+
 		// validate the comment form when it is submitted
-		$("#signupForm").validate({
+		 $("#signupForm").validate({
 			rules : {
 				username : {
 					required : true,
@@ -68,10 +71,6 @@
 					required : true,
 					minlength : 6
 				},
-				verify : {
-					required : true,
-					minlength : 4
-				}
 			},
 			messages : {
 				username : {
@@ -82,12 +81,8 @@
 					required : "请输入密码",
 					minlength : "密码长度不能小于 6 个字符"
 				},
-				verify : {
-					required : "请输入验证码",
-					minlength : "验证码长度为4个字符"
-				}
 			}
-		});
+		}); 
 	});
 </script>
 </head>
@@ -110,16 +105,8 @@
 					<input type="password" id="password" name="password"
 						class="form-control" placeholder="密码" required="">
 				</div>
-				<div class="form-group">
-					<input id="verify" name="verify" type="text"> <img
-						id="verifyImg"
-						onclick="javascript:this.src=('verify?reload='+(new Date()).getTime())"
-						src="verify" width="85" height="35" alt="点击查看验证码">
-				</div>
-				<button type="reset" class="btn btn-primary block full-width m-b">重置</button>
 				<button type="submit" class="btn btn-primary block full-width m-b">登
 					录</button>
-
 
 				<p class="text-muted text-center">
 					<a href="#"><small>忘记密码了？</small></a> | <a

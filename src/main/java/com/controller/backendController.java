@@ -13,5 +13,10 @@ public class backendController {
 	@RequestMapping(value = "/usermanage")
 	public String usermanage() {
 		return "views/usermanage";
+	}	
+	@RequestMapping(value = "/index")
+	public String index() {
+		return "views/index";
 	}
+	
 }
