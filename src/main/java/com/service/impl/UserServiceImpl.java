@@ -23,14 +23,12 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	public UserMapper userMapper;
 
-	@Override
 	public int addUser(User user) {
 		// TODO Auto-generated method stub
 		int userid = userMapper.addUser(user);
 		return userid;
 	}
 
-	@Override
 	public User checkUserByUsername(String username) {
 		// TODO Auto-generated method stub
 		return userMapper.checkUserByUsername(username);
