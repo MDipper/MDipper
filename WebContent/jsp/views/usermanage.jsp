@@ -23,7 +23,7 @@
         	$remove = $('#remove'),
         	selections = [];
 		$table.bootstrapTable({
-			url : '/backend/ajaxAllUser',
+			url : 'ajaxAllUser',
 			height: $(window).height() - $('h1').outerHeight(true),
 			pagination : true,
 			search : true,

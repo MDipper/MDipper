@@ -46,7 +46,6 @@ public class backendController  {
 	@RequestMapping(value = "/index")
 	public String index() {
 		SSOToken st = SSOHelper.getToken(request);
-		request.setAttribute("userid", "aa");
 		if (st != null) {
 			request.setAttribute("userid", st.getUid());
 			logger.debug(String.format("st.getUid()=%s",st.getUid()));

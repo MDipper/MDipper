@@ -19,30 +19,23 @@ import com.service.UserService;
  */
 @Service
 @Transactional
-@Component
 public class UserServiceImpl implements UserService {
 
 	@Resource
 	public UserMapper userMapper;
 
+	@Override
 	public int addUser(User user) {
-		// TODO Auto-generated method stub
 		int userid = userMapper.addUser(user);
 		return userid;
 	}
 
-	public User checkUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return userMapper.checkUserByUsername(username);
+	@Override
+	public boolean checkUserByUsername(String username) {
+		return userMapper.checkUserByUsername(username) == 1;
 	}
-
-	public User checkUsernamePassword(User user) {
-		return userMapper.checkUsernamePassword(user);
-	}
-
-	public List<User> findAllUser() {
-		return userMapper.findAllUser();
-	}
+	
+	@Override
 	public long validUserAndPassword(User user) {
 		List<User> users = userMapper.getUserInfoByName(user);
 		if (users.isEmpty()) {
@@ -56,5 +49,8 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-
+	@Override
+	public List<User> findAllUser() {
+		return userMapper.findAllUser();
+	}
 }
