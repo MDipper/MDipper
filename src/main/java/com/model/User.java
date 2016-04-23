@@ -1,11 +1,20 @@
 package com.model;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 /**
  * @author xiezhipeng
  * @Date 2016-4-20
  */
 public class User {
-	private Long id;
+
+	@TableField(exist = false)
+	private static final long serialVersionUID = 1L;
+
+	/** 主键ID */
+	@TableId
+	private Long userid;
+
 	private String username;
 	private String password;;
 
@@ -13,19 +22,12 @@ public class User {
 		super();
 	}
 
-	public User(String username, String password) {
-		super();
-		this.id = null;
-		this.username = username;
-		this.password = password;
-	}
-
 	public Long getId() {
-		return id;
+		return userid;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.userid = id;
 	}
 
 	public String getUsername() {

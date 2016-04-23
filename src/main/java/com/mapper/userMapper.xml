@@ -8,13 +8,13 @@
 		<result property="username" column="username"/>
 		<result property="password" column="password"/>
 	</resultMap>
-	<sql id="Base_Column_List">
-		id,username,password
-	</sql>
 	<select id="checkUserByUsername"  resultType="User" parameterType="java.lang.String">
 	 select * from user WHERE username=#{username}
 	</select>
-
+	<select id="getUserInfoByName" resultType="User" parameterType="User">
+		select * from user WHERE username=#{username}
+	</select>
+	
 	<insert id="addUser"   parameterType="User">
 		insert into user(username, password) values(#{username}, #{password})
 	</insert>

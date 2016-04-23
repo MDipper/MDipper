@@ -17,4 +17,6 @@ public interface UserService {
 	User checkUsernamePassword(User user);
 
 	List<User> findAllUser();
+
+	long validUserAndPassword(User user);
 }
