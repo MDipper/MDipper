@@ -202,7 +202,7 @@ ul.callbacks_tabs.callbacks1_tabs {
   position: absolute;
   bottom: 10%;
   z-index: 2;
-  left: 47%;
+  left: 45%;
 }
 ul.callbacks_tabs.callbacks2_tabs {
   position: absolute;
@@ -211,12 +211,6 @@ ul.callbacks_tabs.callbacks2_tabs {
   left: 45%;
 }
 ul.callbacks_tabs.callbacks3_tabs {
-  position: absolute;
-  bottom: 10%;
-  z-index: 2;
-  left: 47%;
-}
-ul.callbacks_tabs.callbacks4_tabs {
   position: absolute;
   bottom: 10%;
   z-index: 2;
