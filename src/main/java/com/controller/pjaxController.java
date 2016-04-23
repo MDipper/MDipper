@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/main")
 public class pjaxController {
-	@RequestMapping(value = "/index")
-	public String index() {
+	@RequestMapping(value ="/index" )
+	public String index(){
 		return "main";
 	}
 

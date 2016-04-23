@@ -2,15 +2,35 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/tag_libs.jsp"%>
 <style>
-#aboutmenu  a div {
-	height: 121px;
-	width: 121px;
+#aboutmenu  div {
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-left: 50px;
+	display: table-cell;
+	text-align: center;
+}
+
+#aboutmenu  div:before {
+	content: "";
+	position: relative;
+    left: 12px;
+	width: 120px;
+	height: 120px;
 	border: 4px solid #dcdcdc;
 	border-bottom: 4px solid red;
-	border-radius: 50%;
+	border-left: 4px solid red;
+	border-radius: 100%;
+	transform: rotate(-45deg);
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
+}
+
+#aboutmenu  div a {
+	position: relative;
+	left: -20px;
+	top: -75px;
+	word-break: keep-all;
 }
 
 #aboutmenu  a {
@@ -24,28 +44,32 @@
 }
 
 #aboutmenu, #aboutshow {
-	width: 1170px;
+	width: 90%;
 	padding-right: 15px;
 	padding-left: 15px;
-	margin-right: auto;
 	margin-left: auto;
+	margin-right: auto;
 	margin-top: 30px;
 	display: table;
 }
 
-#aboutmenu .aboutactive {
+#aboutmenu .aboutactive:before {
 	background: red;
 	border: 4px solid red;
 	color: white;
 }
+#aboutmenu .aboutactive a {
+	color: white;
+	border-bottom: 0px;
+}
 </style>
 <script>
-$(function() {
-	$("#aboutmenu a div").click(function() {
-		$("#aboutmenu a div").removeClass("aboutactive");
-		$(this).find("div").addClass("aboutactive");
-	})
-});
+	$(function() {
+		$("#aboutmenu a div").click(function() {
+			$("#aboutmenu a div").removeClass("aboutactive");
+			$(this).find("div").addClass("aboutactive");
+		})
+	});
 </script>
 <div>
 	<div>
@@ -56,12 +80,24 @@ $(function() {
 				ABOUT 关于</div>
 		</div>
 	</div>
-	<div id="aboutmenu"  >
-		<a href=""><div class="aboutactive">关于我们</div></a> <a href=""><div>企业文化</div></a>
-		<a href=""><div>发展历程</div></a> <a href=""><div>企业荣誉</div></a> <a
-			href=""><div>视频中心</div></a>
+	<div id="aboutmenu">
+		<div class="aboutactive">
+			<a href="#">关于我们</a>
+		</div>
+		<div>
+			<a href="#">企业文化</a>
+		</div>
+		<div>
+			<a href="#">发展历程</a>
+		</div>
+		<div>
+			<a href="#">企业荣誉</a>
+		</div>
+		<div>
+			<a href="#">视频中心</a>
+		</div>
 	</div>
 	<div id="aboutshow">
-		<%@include file="/jsp/about/aboutus.jsp" %>
+		<%@include file="/jsp/about/aboutus.jsp"%>
 	</div>
 </div>

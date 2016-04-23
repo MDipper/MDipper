@@ -6,7 +6,7 @@
 <title>首页</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="${js}/responsiveslides.min.js"></script>
-<script src="${js}/home.js"></script>
+<!-- <script src="${js}/home.js"></script> -->
 <link href="${css}/home.css" rel="stylesheet">
 <script type="application/x-javascript">
 	
@@ -30,7 +30,7 @@
 			<div class="navigation">
 				<span class="menu"></span>
 				<ul id="nav" class="navig">
-					<li><a href="${ctx}" class="active">首页</a>
+					<li><a href="${ctx}/main/index" class="active">首页</a>
 						<div></div></li>
 					<li><a href="${ctx}/main/about">关于</a>
 						<div></div>
