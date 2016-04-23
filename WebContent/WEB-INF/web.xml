@@ -65,7 +65,7 @@
 		<filter-class>com.baomidou.kisso.web.filter.WafFilter</filter-class>
 		<init-param>
 			<param-name>over.url</param-name>
-			<param-value>/user/toreg</param-value>
+			<param-value>/account/loginpost</param-value>
 		</init-param>
 		<init-param>
 			<param-name>filter_xss</param-name>

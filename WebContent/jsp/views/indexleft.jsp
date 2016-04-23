@@ -13,7 +13,7 @@
 					src="${image}/profile_small.png" /></span> <a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <span class="clear"> <span
 						class="block m-t-xs"><strong class="font-bold">${userid}</strong></span>
-						<span class="text-muted text-xs block">${userid}设置<b
+						<span class="text-muted text-xs block">设置<b
 							class="caret"></b></span>
 				</span>
 				</a>
