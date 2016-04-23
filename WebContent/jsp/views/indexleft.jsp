@@ -12,8 +12,8 @@
 				<span><img alt="image" style="width:66px;height:66px;" class="img-circle"
 					src="${image}/profile_small.png" /></span> <a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <span class="clear"> <span
-						class="block m-t-xs"><strong class="font-bold">${userId}</strong></span>
-						<span class="text-muted text-xs block">管理员<b
+						class="block m-t-xs"><strong class="font-bold">${userid}</strong></span>
+						<span class="text-muted text-xs block">${userid}设置<b
 							class="caret"></b></span>
 				</span>
 				</a>

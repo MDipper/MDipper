@@ -32,7 +32,7 @@
 		} else {
 			return results[1];
 		}
-	}
+	}	
 	$.validator.setDefaults({
 		submitHandler : function() {
 			$.post(
@@ -44,8 +44,7 @@
 				password : $("#password").val()
 			}, function(data) {
 				if (data.code == '200') {
-					alert("msg: " + data.msg + "\n" + "即将跳转。");
-					location.href = gup("ReturnURL");
+					location.href = "${ctx}/backend/index";
 				} else if (data.code == '400') {
 					alert(data.msg);
 					location.reload();

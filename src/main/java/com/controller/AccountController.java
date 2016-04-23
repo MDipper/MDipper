@@ -1,11 +1,14 @@
 package com.controller;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.servlet.http.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +28,11 @@ import com.service.UserService;
 public class AccountController {
 	@Autowired
 	private UserService userService;
-	@Autowired
-	protected HttpServletRequest request;
-	@Autowired
-	protected HttpServletResponse response;
-
+	/*
+	 * @Autowired protected HttpServletRequest request;
+	 * 
+	 * @Autowired protected HttpServletResponse response;
+	 */
 	private static Logger logger = Logger.getLogger(UserController.class);
 
 	@Login(action = Action.Skip)
@@ -71,7 +74,8 @@ public class AccountController {
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> loginpost(
 			@RequestParam(value = "username") String username,
-			@RequestParam(value = "password") String password) {
+			@RequestParam(value = "password") String password,
+			HttpServletResponse response, HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		/**
 		 * 生产环境需要过滤sql注入
@@ -96,6 +100,7 @@ public class AccountController {
 			st.setId(userid);
 			st.setUid(username_);
 			st.setType(1);
+			logger.debug(String.format("st.getId=%s",st.getId()));
 
 			// 记住密码，设置 cookie 时长 1 天 = 86400 秒 【动态设置 maxAge 实现记住密码功能】
 			/*
