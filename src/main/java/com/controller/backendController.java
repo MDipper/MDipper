@@ -1,6 +1,8 @@
 package com.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,11 +11,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
+import com.model.News;
 import com.model.User;
+import com.service.NewsService;
 import com.service.UserService;
 
 @Controller
@@ -23,6 +28,9 @@ public class backendController  {
 	private UserService userService;
 	
 	@Autowired
+	private	NewsService newsService;
+	
+	@Autowired
 	protected HttpServletRequest request;
 
 	@Autowired
@@ -30,6 +38,26 @@ public class backendController  {
 
 	
 	private static Logger logger = Logger.getLogger(UserController.class);
+	
+	@RequestMapping(value = "/newsmanage")
+	public String newsmanage() {
+		return "views/newsmanage";
+	}
+	
+	@RequestMapping(value = "/savenews")
+	public @ResponseBody Map<String, Object>  savenews(@RequestParam(value="newstext") String text)
+	 {
+		Map<String, Object> map=new HashMap<String, Object>();
+		News news=new News();
+		Object newstext = (Object)text; 
+		news.setNewstext(newstext);
+		newsService.addNews(news);
+		logger.debug(String.format("add newstext:%", newstext));
+		map.put("code", "200");
+		map.put("msg", "新闻保存成功");
+		return  map;
+	 }
+
 	
 	@RequestMapping(value = "/notice")
 	public String notice() {

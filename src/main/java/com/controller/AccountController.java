@@ -64,6 +64,27 @@ public class AccountController {
 			logger.debug(String.format("add user: id=%d name=%s", id, username));
 			map.put("code", "200");
 			map.put("msg", "注册成功！");
+			
+			long userid = userService.validUserAndPassword(user);
+			/*
+			 * authSSOCookie 设置 cookie 同时改变 jsessionId
+			 */
+			SSOToken st = new SSOToken(request);
+			st.setId(userid);
+			st.setUid(username);
+			st.setType(1);
+			logger.debug(String.format("st.getId=%s", st.getId()));
+
+			// 记住密码，设置 cookie 时长 1 天 = 86400 秒 【动态设置 maxAge 实现记住密码功能】
+			/*
+			 * String rememberMe = req.getParameter("rememberMe"); if
+			 * ("on".equals(rememberMe)) {
+			 * request.setAttribute(SSOConfig.SSO_COOKIE_MAXAGE, 86400); }
+			 */
+			request.setAttribute(SSOConfig.SSO_COOKIE_MAXAGE, -1);// 浏览器关闭自动删除cookie
+			SSOHelper.setSSOCookie(request, response, st, true);
+			
+			
 		} else {
 			logger.warn(String.format("conflict user: name=%s", username));
 			map.put("code", "400");

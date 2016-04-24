@@ -34,7 +34,7 @@
 			<ul class="nav nav-second-level">
 				<li><a class="J_menuItem" href="${ctx}/backend/notice" data-index="0">系统公告</a></li>
 				<li><a class="J_menuItem" href="${ctx}/backend/usermanage">用户管理</a></li>
-				<li><a class="J_menuItem" href="">新闻管理</a></li>
+				<li><a class="J_menuItem" href="${ctx}/backend/newsmanage">新闻管理</a></li>
 				<li><a class="J_menuItem" href="">企业管理</a></li>
 			</ul></li>
 

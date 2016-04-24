@@ -189,18 +189,16 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="span2"></div>
-			<div class="span6">
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
 				<div id="toolbar">
         			<button id="remove" class="btn btn-danger" disabled>
             			<i class="glyphicon glyphicon-remove"></i> 删除
         			</button>
     			</div>
-				<table id="table"></table>
+				<table id="table" ></table>
 			</div>
-			<div class="span4"></div>
 		</div>
 	</div>
 </body>
