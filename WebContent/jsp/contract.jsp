@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/tag_libs.jsp"%>
+<style>
+#address {
+	background: #f1f4f7;
+	width: 85%;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+
+#address  div div {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px;
+	font-size: 18px;
+}
+</style>
 <div>
 	<div>
 		<div style="position: relative; width: 100%; height: 280px;">
@@ -10,12 +27,16 @@
 				CONTRACT 联系</div>
 		</div>
 	</div>
-	<div>
-		<p>地址：南京市栖霞区文苑路</p>
-		<p>邮编：210046</p>
-		<p>联系人：MDipper</p>
-		<p>联系电话：123 4567 8910</p>
-		<p>传真：025-12345678 025-87654321</p>
-		<p>E-mail：marketing@MDipper.com</p>
+	<div id="address">
+		<div id="my_canvas" style="width:600px;height:300px;float:right;"></div>
+		<div style="padding: 35px;">
+			<div>地址：南京市栖霞区文苑路</div>
+			<div>邮编：210046</div>
+			<div>联系人：MDipper</div>
+			<div>联系电话：123 4567 8910</div>
+			<div>传真：025-12345678 025-87654321</div>
+			<div >E-mail：marketing@MDipper.com</div>
+		</div>
 	</div>
+	<div style="height:40px;"></div>
 </div>
