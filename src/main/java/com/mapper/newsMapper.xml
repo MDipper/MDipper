@@ -5,9 +5,9 @@
 	<!-- 解决表名与字段不匹配 -->
 	<resultMap type="News" id="newsResultMap">
 		<id property="newsid" column="newsid" />
-		<result property="newstext" column="newstext"  jdbcType="BLOB"/>
+		<result property="newstext" column="newstext" jdbcType="BLOB" />
 	</resultMap>
-	
+
 	<!-- 添加新闻 -->
 	<insert id="addNews" parameterType="News">
 		insert into news (newstext)
@@ -19,4 +19,7 @@
 		select * from news
 	</select>
 
+	<select id="selectNewsByid" resultType="News" parameterType="java.lang.Long">
+		select * from news WHERE newsid=#{newsid}
+	</select>
 </mapper>

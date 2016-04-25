@@ -11,6 +11,8 @@
 <script type="text/javascript">
 function savenews()
 {
+	var editor = new Editor();
+	editor.render();
 	$.ajax({
 		url:"${ctx}/backend/savenews",
 		data:"newstext="+$("#newstext").val(),
@@ -24,7 +26,6 @@ function savenews()
 		}
 	})
 		
-	
 }
 </script>
 </head>
@@ -41,11 +42,10 @@ function savenews()
 	<script src="${js}/editormd.min.js"></script>
 	<script type="text/javascript">
 		var testEditor;
-
 		$(function() {
 			testEditor = editormd("test-editormd", {
 				width : "90%",
-				height : 640,
+				height : 445,
 				syncScrolling : "single",
 				path : "${css}/markdown/"
 			});

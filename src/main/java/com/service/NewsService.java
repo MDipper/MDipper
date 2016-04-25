@@ -10,12 +10,9 @@ import com.model.News;
  */
 public interface NewsService {
 
-	/**
-	 * 添加新闻
-	 * @param news   新闻
-	 * @return 新闻id
-	 */
 	int addNews(News news);
 
+	News selectNewsByid(long newsid);
+	
 	List<News> findAllNews();
 }

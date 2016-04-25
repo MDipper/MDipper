@@ -28,7 +28,9 @@ public class NewsServiceImpl implements NewsService {
 	public int addNews(News news){
 		return newsMapper.addNews(news);
 	}
-
+	public News selectNewsByid(long newsid){
+		return newsMapper.selectNewsByid(newsid);
+	}
 	public List<News> findAllNews(){
 		return newsMapper.findAllNews();
 	}

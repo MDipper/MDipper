@@ -9,12 +9,10 @@ import com.model.News;
  * @Date 2016-4-24
  */
 public interface NewsMapper {
-	/**
-	 * 添加新闻
-	 * @param news   新闻
-	 * @return 新闻id
-	 */
+
 	int addNews(News news);
+
+	News selectNewsByid(long newsid);
 
 	List<News> findAllNews();
 }

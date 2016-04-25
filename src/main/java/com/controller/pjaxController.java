@@ -1,7 +1,13 @@
 package com.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.model.News;
+import com.service.NewsService;
 
 /**
  * @author xiezhipeng
@@ -11,6 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/main")
 public class pjaxController {
+	@Autowired
+	private NewsService newsService;
+	
+	@Autowired
+	HttpServletRequest request;
+	
 	@RequestMapping(value ="/index" )
 	public String index(){
 		return "main";
@@ -28,6 +40,8 @@ public class pjaxController {
 
 	@RequestMapping(value = "/news")
 	public String news() {
+		News news=newsService.selectNewsByid(2);
+		request.setAttribute("newstext", news.getNewstext());
 		return "news";
 	}
 
