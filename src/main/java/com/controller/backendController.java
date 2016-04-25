@@ -23,62 +23,62 @@ import com.service.UserService;
 
 @Controller
 @RequestMapping("/backend")
-public class backendController  {
+public class backendController {
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
-	private	NewsService newsService;
-	
+	private NewsService newsService;
+
 	@Autowired
 	protected HttpServletRequest request;
 
 	@Autowired
 	protected HttpServletResponse response;
 
-	
 	private static Logger logger = Logger.getLogger(UserController.class);
-	
+
 	@RequestMapping(value = "/newsmanage")
 	public String newsmanage() {
 		return "views/newsmanage";
 	}
-	
+
 	@RequestMapping(value = "/savenews")
-	public @ResponseBody Map<String, Object>  savenews(@RequestParam(value="newstext") String text)
-	 {
-		Map<String, Object> map=new HashMap<String, Object>();
-		News news=new News();
-		Object newstext = (Object)text; 
+	public @ResponseBody Map<String, Object> savenews(@RequestParam(value = "newstext") String text) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		News news = new News();
+		Object newstext = (Object) text;
 		news.setNewstext(newstext);
 		newsService.addNews(news);
-		logger.debug(String.format("add newstext:%", newstext));
+		logger.debug(String.format("add newstext:%s", text));
 		map.put("code", "200");
 		map.put("msg", "新闻保存成功");
-		return  map;
-	 }
+		return map;
+	}
 
-	
 	@RequestMapping(value = "/notice")
 	public String notice() {
 		return "views/notice";
 	}
+
 	@RequestMapping(value = "/usermanage")
 	public String usermanage() {
 		return "views/usermanage";
-	}	
+	}
+
 	@RequestMapping("/ajaxAllUser")
 	public @ResponseBody List<User> ajaxAllUser() {
 		return userService.findAllUser();
 	}
+
 	@RequestMapping(value = "/index")
 	public String index() {
 		SSOToken st = SSOHelper.getToken(request);
 		if (st != null) {
 			request.setAttribute("userid", st.getUid());
-			logger.debug(String.format("st.getUid()=%s",st.getUid()));
+			logger.debug(String.format("st.getUid()=%s", st.getUid()));
 		}
 		return "views/index";
 	}
-	
+
 }
