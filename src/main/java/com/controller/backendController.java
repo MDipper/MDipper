@@ -47,8 +47,7 @@ public class backendController {
 	public @ResponseBody Map<String, Object> savenews(@RequestParam(value = "newstext") String text) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		News news = new News();
-		Object newstext = (Object) text;
-		news.setNewstext(newstext);
+		news.setNewstext(text);
 		newsService.addNews(news);
 		logger.debug(String.format("add newstext:%s", text));
 		map.put("code", "200");

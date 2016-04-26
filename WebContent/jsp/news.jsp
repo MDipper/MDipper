@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/tag_libs.jsp"%>
-<link href="${css }/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${css}/markdown/style.css" />
+<link href="${resource}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
 <style>
 #newscontent .newslist {
 	background: #fafafa;

@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +42,8 @@ public class pjaxController {
 
 	@RequestMapping(value = "/news")
 	public String news() {
-/*		News news=newsService.selectNewsByid(3);
-		request.setAttribute("newstext", news.getNewstext());*/
+		List<News> newslist=newsService.findAllNews();
+		request.setAttribute("newslist", newslist);
 		return "news";
 	}
 

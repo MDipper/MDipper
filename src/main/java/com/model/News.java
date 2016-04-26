@@ -1,6 +1,5 @@
 package com.model;
 
-
 /**
  * @author xiezhipeng
  * @Date 2016-4-24
@@ -11,7 +10,7 @@ public class News {
 	private Long newsid;
 
 	/** 新闻内容 */
-	private Object  newstext;
+	private String newstext;
 
 	public Long getNewsid() {
 		return newsid;
@@ -21,11 +20,11 @@ public class News {
 		this.newsid = newsid;
 	}
 
-	public Object  getNewstext() {
+	public String getNewstext() {
 		return newstext;
 	}
 
-	public void setNewstext(Object  newstext) {
+	public void setNewstext(String newstext) {
 		this.newstext = newstext;
 	}
 }
