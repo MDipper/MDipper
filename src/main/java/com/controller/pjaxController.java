@@ -40,8 +40,8 @@ public class pjaxController {
 
 	@RequestMapping(value = "/news")
 	public String news() {
-		News news=newsService.selectNewsByid(2);
-		request.setAttribute("newstext", news.getNewstext());
+/*		News news=newsService.selectNewsByid(3);
+		request.setAttribute("newstext", news.getNewstext());*/
 		return "news";
 	}
 
@@ -55,9 +55,9 @@ public class pjaxController {
 		return "join";
 	}
 
-	@RequestMapping(value = "/contract")
-	public String contract() {
-		return "contract";
+	@RequestMapping(value = "/contact")
+	public String contact() {
+		return "contact";
 	}
 
 	@RequestMapping(value = "/plan")

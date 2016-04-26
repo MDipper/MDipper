@@ -2,8 +2,7 @@ package com.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,21 +19,18 @@ import com.service.UserService;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-	@Resource
+	@Autowired
 	public UserMapper userMapper;
 
-	@Override
 	public int addUser(User user) {
 		int userid = userMapper.addUser(user);
 		return userid;
 	}
 
-	@Override
 	public boolean checkUserByUsername(String username) {
 		return userMapper.checkUserByUsername(username) == 1;
 	}
 	
-	@Override
 	public long validUserAndPassword(User user) {
 		List<User> users = userMapper.getUserInfoByName(user);
 		if (users.isEmpty()) {
@@ -48,7 +44,6 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	@Override
 	public List<User> findAllUser() {
 		return userMapper.findAllUser();
 	}

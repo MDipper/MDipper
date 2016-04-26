@@ -78,7 +78,7 @@
 						<div></div></li>
 					<li><a href="${ctx}/main/join">招聘</a>
 						<div></div></li>
-					<li><a href="${ctx}/main/contract">联系</a>
+					<li><a href="${ctx}/main/contact">联系</a>
 						<div></div></li>
 				</ul>
 			</div>
