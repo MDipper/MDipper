@@ -5,8 +5,9 @@
 <head>
 <title>首页</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="${js}/responsiveslides.min.js"></script>
-<!-- <script src="${js}/home.js"></script> -->
+<script src="${js}/jquery-1.11.1.js"></script>
+<script src="${js}/jquery.pjax.js"></script>
+<script src="${js}/home.js"></script>
 <link href="${css}/home.css" rel="stylesheet">
 <script type="application/x-javascript">
 	
