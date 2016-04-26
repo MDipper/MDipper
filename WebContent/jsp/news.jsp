@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/tag_libs.jsp"%>
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="${css}/markdown/style.css" />
-<link href="${resource}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
 <style>
 #newscontent .newslist {
 	background: #fafafa;
@@ -19,6 +17,7 @@
 	margin-bottom: 0px;
 	padding: 0px;
 }
+
 </style>
 <div>
 	<div>
@@ -40,12 +39,11 @@
 				</div>
 				<div>3月18日晚间，苏宁环球股份有限公司发布2015年度业绩报告。期内公司营业收入同比增加35.16%；实现归属于上市公司股东的净利润9.00亿元，同比增加18.05%；基本每股收益0.339元；同时公司2015年度利润分配预案为每10股派发现金股利1元（含税）。</div>
 				<div>
-					<a class="text-decoration: none;" href="#"><span
-						class="btn btn-primary block full-width m-b">阅读更多</span></a>
+					<a class="text-decoration: none;" href="#"><span class="btn btn-primary">阅读更多</span></a>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="newslist">
 			<img src="${image}/newstest.jpg"
 				style="margin: 0px; float: right; width: 450px; height: 300px;" />
@@ -57,12 +55,11 @@
 				<div>3月18日晚间，苏宁环球股份有限公司发布2015年度业绩报告。期内公司营业收入同比增加35.16%；实现归属于上市公司股东的净利润9.00亿元，同比增加18.05%；基本每股收益0.339元；同时公司2015年度利润分配预案为每10股派发现金股利1元（含税）。</div>
 				<div>
 					<a class="text-decoration: none;" href="#"><span
-						class="btn btn-primary block full-width m-b">阅读更多</span></a>
+							class="btn btn-primary  ">阅读更多</span></a>
 				</div>
 			</div>
 		</div>
-		
-		<div style="height:40px;">
-	</div>
+
+		<div style="height: 40px;"></div>
 	</div>
 </div>

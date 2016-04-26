@@ -22,7 +22,7 @@
 </head>
 <body>
 	<div class="header" id="home">
-		<div class="container">
+		<div id="container">
 			<div class="logo">
 				<a href="${ctx}/main/index"> <img src="${image}/logo.png" />
 				</a>
