@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/commons/tag_libs.jsp"%>
-<link href="${css }/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${css}/markdown/style.css" />
+<link rel="stylesheet" href="${css}/markdown/editormd.preview.css" />
+<link href="${resource}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
 <style>
 #newscontent .newslist {
 	background: #f1f4f7;
@@ -27,7 +30,41 @@
 				NEWS 新闻</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		csspath = "${css}";
+		$(function() {
+			for (var i = 1; i <= $("textarea").length; i++) {
+				editormd("md-" + i, {
+					width : "60%",
+					height : "200",
+					syncScrolling : "single",
+					readOnly : true,
+					path : csspath + "/markdown/"
+				});
+			}
+		});
+	</script>
 	<div id="newscontent">
+		<c:forEach var="item" items="${newslist}" varStatus="status">
+			<div class="newslist">
+				<img src="${image}/newstest.jpg"
+					style="margin: 0px; float: right; width: 450px; height: 300px;" />
+				<div style="padding: 35px;">
+					<div style="font-size: 18px;">2016.04.20</div>
+					<div style="font-size: 20px; color: blue;">
+						<a href="#" style="text-decoration: none;">Test</a>
+					</div>
+					<div id="md-${status.count}">
+						<textarea>${item.newstext}</textarea>
+					</div>
+					<div>
+						<a class="text-decoration: none;" href="#"><span
+							class="btn btn-primary block full-width m-b">阅读更多</span></a>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+
 		<div class="newslist">
 			<img src="${image}/newstest.jpg"
 				style="margin: 0px; float: right; width: 450px; height: 300px;" />
@@ -43,7 +80,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="newslist">
 			<img src="${image}/newstest.jpg"
 				style="margin: 0px; float: right; width: 450px; height: 300px;" />
@@ -59,7 +96,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<div style="height:40px;">
+
+		<div style="height: 40px;"></div>
 	</div>
 </div>
