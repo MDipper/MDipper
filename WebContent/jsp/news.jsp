@@ -30,6 +30,26 @@
 		</div>
 	</div>
 	<div id="newscontent">
+		<c:forEach var="item" items="${newslist}" varStatus="status">
+			<div class="newslist">
+				<img src="${image}/newstest.jpg"
+					style="margin: 0px; float: right; width: 450px; height: 300px;" />
+				<div style="padding: 35px;">
+					<div style="font-size: 18px;">2016.04.20</div>
+					<div style="font-size: 20px; color: blue;">
+						<a href="#" style="text-decoration: none;">Test</a>
+					</div>
+					<div id="md-${status.count}">
+						${item.newstext}
+					</div>
+					<div>
+						<a class="text-decoration: none;" href="#"><span
+							class="btn btn-primary block full-width m-b">阅读更多</span></a>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+
 		<div class="newslist">
 			<img src="${image}/newstest.jpg"
 				style="margin: 0px; float: right; width: 450px; height: 300px;" />
@@ -45,7 +65,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="newslist">
 			<img src="${image}/newstest.jpg"
 				style="margin: 0px; float: right; width: 450px; height: 300px;" />
@@ -61,8 +81,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<div style="height:40px;">
-	</div>
+
+		<div style="height: 40px;"></div>
 	</div>
 </div>
