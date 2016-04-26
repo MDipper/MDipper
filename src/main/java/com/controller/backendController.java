@@ -36,7 +36,7 @@ public class backendController {
 	@Autowired
 	protected HttpServletResponse response;
 
-	private static Logger logger = Logger.getLogger(UserController.class);
+	private static Logger logger = Logger.getLogger(backendController.class);
 
 	@RequestMapping(value = "/newsmanage")
 	public String newsmanage() {

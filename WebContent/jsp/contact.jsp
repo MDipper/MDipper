@@ -41,7 +41,7 @@
 			<div>联系人：MDipper</div>
 			<div>联系电话：123 4567 8910</div>
 			<div>传真：025-12345678 025-87654321</div>
-			<div>E-mail：contact@MDipper.com</div>
+			<div>E-mail：marketing@MDipper.com</div>
 		</div>
 	</div>
 	<div style="height: 40px;"></div>

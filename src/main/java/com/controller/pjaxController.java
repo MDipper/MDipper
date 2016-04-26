@@ -21,7 +21,7 @@ public class pjaxController {
 	private NewsService newsService;
 	
 	@Autowired
-	HttpServletRequest request;
+	protected HttpServletRequest request;
 	
 	@RequestMapping(value ="/index" )
 	public String index(){

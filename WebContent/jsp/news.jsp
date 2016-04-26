@@ -4,7 +4,7 @@
 <link href="${css }/bootstrap.min.css" rel="stylesheet">
 <style>
 #newscontent .newslist {
-	background: #f1f4f7;
+	background: #fafafa;
 	width: 85%;
 	height: 300px;
 	margin-left: auto;

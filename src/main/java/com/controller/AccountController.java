@@ -35,7 +35,7 @@ public class AccountController {
 	@Autowired
 	protected HttpServletResponse response;
 
-	private static Logger logger = Logger.getLogger(UserController.class);
+	private static Logger logger = Logger.getLogger(AccountController.class);
 
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/login")
