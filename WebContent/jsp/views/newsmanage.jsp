@@ -13,7 +13,7 @@
 		$.ajax({
 			url : "${ctx}/backend/savenews",
 			data : {
-				newstext : $("#newstext").val()
+				newstext : testEditor.getHTML()
 			},
 			type : "POST",
 			dataType : "json",
@@ -39,12 +39,12 @@
 	<script src="${js}/jquery-1.11.1.js"></script>
 	<script src="${js}/editormd.min.js"></script>
 	<script type="text/javascript">
-		var testEditor;
 		$(function() {
 			testEditor = editormd("test-editormd", {
 				width : "90%",
 				height : 445,
 				syncScrolling : "single",
+				saveHTMLToTextarea : true,
 				path : "${css}/markdown/"
 			});
 		});
