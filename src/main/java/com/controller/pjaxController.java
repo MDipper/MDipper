@@ -76,4 +76,9 @@ public class pjaxController {
 	public String client() {
 		return "/service/client";
 	}
+	
+	@RequestMapping(value = "/map-intern")
+	public String map() {
+		return "/map";
+	}
 }

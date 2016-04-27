@@ -31,7 +31,7 @@
 	<div id="address">
 		<div id="my_canvas" style="width: 600px; height: 300px; float: right;">
 			<iframe
-				src="http://www.map-generator.org/d0a798f7-cfe2-4978-aa96-7d72c8760ae0/iframe-map.aspx"
+				src="map-intern"
 				scrolling="no" width="600px" height="300px" frameborder="0"
 				scrolling="no" marginheight="0" marginwidth="0"></iframe>
 		</div>
