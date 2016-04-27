@@ -25,7 +25,7 @@
 	width: 25%;
 	heigth: 100%;
 	float: left;
-	font-family: "华文中宋";
+	font-family: "Microsoft YaHei";
 }
 
 #plan  div h1 {

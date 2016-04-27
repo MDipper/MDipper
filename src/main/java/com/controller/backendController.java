@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,15 +45,30 @@ public class backendController {
 	}
 
 	@RequestMapping(value = "/savenews")
-	public @ResponseBody Map<String, Object> savenews(@RequestParam(value = "newstext") String text) {
+	public @ResponseBody Map<String, Object> savenews(
+			@RequestParam(value = "newsdate") Date newsdate,
+			@RequestParam(value = "newstitle") String newstitle,
+			@RequestParam(value = "newsabstract") String newsabstract,
+			@RequestParam(value = "newstext") String text) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		News news = new News();
-		news.setNewstext(text);
-		newsService.addNews(news);
-		logger.debug(String.format("add newstext:%s", text));
-		map.put("code", "200");
-		map.put("msg", "新闻保存成功");
-		return map;
+		logger.debug(String.format("text=%s", text));
+		if (text == null || "".equals(text)) {
+			map.put("code", "400");
+			map.put("msg", "新闻内容不能为空");
+			return map;
+		} else {
+			News news = new News();
+			news.setNewsdate(newsdate);
+			news.setNewstitle(newstitle);
+			news.setNewsabstract(newsabstract);
+			news.setNewstext(text);
+			newsService.addNews(news);
+			logger.debug(String.format("add newstext:%s", text));
+			map.put("code", "200");
+			map.put("msg", "新闻保存成功");
+			return map;
+		}
+
 	}
 
 	@RequestMapping(value = "/notice")

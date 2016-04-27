@@ -4,9 +4,9 @@
 }
 
 html { overflow-y: scroll; 
-background:#428bca;
+background:#ffffff;
 }
-#container {
+.container {
   width: 90%;
   padding-right: 15px;
   padding-left: 15px;
@@ -14,10 +14,10 @@ background:#428bca;
   margin-left: auto;
   margin-top:30px;
 }
-#container {
+.container {
   height: 85px;
 }
-#container::before {
+.container::before {
   display: table;
   content: " ";
 }

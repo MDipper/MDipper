@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<link href="${css}/bootstrap.min.css"  rel="stylesheet"/>
+<link href="${resource}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${css}/bootstrap-table.css" rel="stylesheet"/>
 <link href="${css}/bootstrap-editable.css" rel="stylesheet"/>
 <script src="${js}/jquery-1.11.1.js" ></script>

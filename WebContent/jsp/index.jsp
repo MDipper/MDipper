@@ -9,7 +9,8 @@
 <script>
   $(document).ready(function(){
   	$(document).pjax('#home a', '#main');  
-  	$(document).pjax('#servicemenu #nav a', '#serviceshow');  
+  	$(document).pjax('#servicemenu #nav a', '#serviceshow'); 
+  	$(document).pjax('#newscontent div div div a', '#newscontent'); 
   });
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

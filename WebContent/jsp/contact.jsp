@@ -16,6 +16,7 @@
 	margin-bottom: 10px;
 	padding: 0px;
 	font-size: 18px;
+	font-family: "Microsoft YaHei";
 }
 </style>
 
@@ -30,10 +31,8 @@
 	</div>
 	<div id="address">
 		<div id="my_canvas" style="width: 600px; height: 300px; float: right;">
-			<iframe
-				src="map-intern"
-				scrolling="no" width="600px" height="300px" frameborder="0"
-				scrolling="no" marginheight="0" marginwidth="0"></iframe>
+			<iframe src="map-intern" scrolling="no" width="600px" height="300px"
+				frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 		</div>
 		<div style="padding: 35px;">
 			<div>地址：南京市栖霞区文苑路1号</div>

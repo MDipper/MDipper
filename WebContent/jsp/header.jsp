@@ -9,21 +9,19 @@
 <script src="${js}/jquery.pjax.js"></script>
 <script src="${js}/home.js"></script>
 <link href="${css}/home.css" rel="stylesheet">
+<link href="${resource}/css/bootstrap.min.css" rel="stylesheet">
 <script type="application/x-javascript">
-	
-	
     addEventListener("load", function() {
       setTimeout(hideURLbar, 0);
     }, false);
     function hideURLbar() {
       window.scrollTo(0, 1);
     }
-
 </script>
 </head>
 <body>
 	<div class="header" id="home">
-		<div id="container">
+		<div class="container">
 			<div class="logo">
 				<a href="${ctx}/main/index"> <img src="${image}/logo.png" />
 				</a>

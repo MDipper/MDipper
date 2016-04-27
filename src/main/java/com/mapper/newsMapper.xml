@@ -5,13 +5,17 @@
 	<!-- 解决表名与字段不匹配 -->
 	<resultMap type="News" id="newsResultMap">
 		<id property="newsid" column="newsid" />
-		<result property="newstext" column="newstext" jdbcType="BLOB" />
+		<result property="newsdate" column="newsdate" />
+		<result property="newstitle" column="newstitle" />
+		<result property="newsabstract" column="newsabstract" />
+		<result property="newstext" column="newstext" />
 	</resultMap>
 
 	<!-- 添加新闻 -->
 	<insert id="addNews" parameterType="News">
-		insert into news (newstext)
-		values(#{newstext})
+		insert into news
+		(newsdate,newstitle,newsabstract,newstext)
+		values(#{newsdate},#{newstitle},#{newsabstract},#{newstext})
 	</insert>
 
 	<!-- 查询所有新闻 -->

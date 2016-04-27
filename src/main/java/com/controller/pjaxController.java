@@ -1,9 +1,11 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +23,14 @@ import com.service.NewsService;
 public class pjaxController {
 	@Autowired
 	private NewsService newsService;
-	
+
 	@Autowired
 	protected HttpServletRequest request;
-	
-	@RequestMapping(value ="/index" )
-	public String index(){
+
+	private static Logger logger = Logger.getLogger(pjaxController.class);
+
+	@RequestMapping(value = "/index")
+	public String index() {
 		return "main";
 	}
 
@@ -41,11 +45,18 @@ public class pjaxController {
 	}
 
 	@RequestMapping(value = "/news")
-	public String news() {
-		List<News> newslist=newsService.findAllNews();
+	public String news()  {
+		List<News> newslist = newsService.findAllNews();
 		request.setAttribute("newslist", newslist);
 		return "news";
 	}
+	@RequestMapping(value = "/shownewstext")
+	public String shownewstext(){
+		List<News> newslist = newsService.findAllNews();
+		request.setAttribute("newslist", newslist);
+		return "shownewstext";
+	}
+	
 
 	@RequestMapping(value = "/service")
 	public String service() {
@@ -76,7 +87,7 @@ public class pjaxController {
 	public String client() {
 		return "/service/client";
 	}
-	
+
 	@RequestMapping(value = "/map-intern")
 	public String map() {
 		return "/map";
