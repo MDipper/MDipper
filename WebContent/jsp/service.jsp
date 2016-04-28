@@ -11,7 +11,7 @@
 </script>
 <style>
 #servicemenu {
-	width: 300px;
+	width: 500px;
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;

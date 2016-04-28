@@ -7,9 +7,10 @@
 			<div id="md-${status.count}">${item.newstext}</div>
 		</c:forEach>
 		<div>
-			<input class="btn btn-primary block full-width m-b" type="button"
+			<input class="btn btn-primary block " type="button"
 				value="返回" onclick="javascript:history.back();" />
 		</div>
 	</div>
-
+	
 </div>
+<div style="height: 40px;"></div>

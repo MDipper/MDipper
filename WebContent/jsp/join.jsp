@@ -32,9 +32,10 @@
 	<div id="jobs">
 		<div style="padding: 35px;">
 			<div style="color: #00adef; font-size: 30px;">招贤纳士</div>
-			<hr color="#00c0f1" width="5%" style="float: left;" />
-			<br />
+			<div style="background:#00c0f1;width:5%;height:2px;"></div>
 			<div style="font-size: 20px;">请将简历投递到至邮箱join@MDipper.com</div>
+			
+			<div style="margin-top: 30px;background:#00c0f1;width:100%;height:2px;"></div>
 			<div style="font-size: 24px; font-weight: bold;">职位名称：金融理财师</div>
 			<div
 				style="width: 120px; color: white; background: #00c0f1; border-radius: 20px;">
@@ -52,9 +53,9 @@
 			<div>3、具备良好的沟通能力和表达能力；</div>
 			<div>4、文字功底扎实，熟练使用word、excel等办公软件；</div>
 			<div>5、工作细致，严谨认真，责任心强，具有良好的团队合作精神。</div>
-		</div>
-		<hr color="#00c0f1" width="95%" style="" />
-		<div style="padding: 35px;">
+	
+			<div style="margin-top: 30px;background:#00c0f1;width:100%;height:2px;"></div>
+
 			<div style="font-size: 24px; font-weight: bold;">职位名称：行业及公司研究员（实习）</div>
 			<div
 				style="width: 120px; color: white; background: #00c0f1; border-radius: 20px;">
