@@ -3,7 +3,7 @@
 <style>
 #aboutus img {
 	border: 1px solid #dddddd;
-	margin:2px;
+	margin: 2px;
 	padding: 6px;
 	height: 186px;
 	widht: 186px;
@@ -16,7 +16,8 @@
 	-moz-transition: 1s all ease;
 }
 </style>
-<div id="aboutus" style="font-size: 18px; border: 2px solid #eeeeee; margin: 0px; padding:35px;">
+<div id="aboutus"
+	style="font-size: 18px; border: 2px solid #eeeeee; margin: 0px; padding: 35px;">
 
 	<img style="float: left;" src="${image}/nnu1.jpg" />
 	<p>
@@ -34,3 +35,4 @@
 	</p>
 	<p>&nbsp;&nbsp;南京师范大学不断推进“厚生育才”战略，深化教育教学改革，提高人才培养质量。拥有国家精品课程13门、国家级精品视频公开课8门、国家级精品资源共享课15门、教育部双语教学示范课程7门、教育部来华留学英语授课品牌课程2门、全国高校职业发展与就业指导示范课程1门，教育部“马工程”重点教材相应课程“精彩一课”11门，国家特色专业8个，“十二五”本科国家级规划教材21本（部），国家级教学成果奖17项，国家级人才培养模式创新实验区3个，教育部专业综合改革试点项目1个，教育部卓越教师培养计划改革项目2个，国家文科基础学科人才培养和科学研究基地、国家理科基础学科研究和教学人才培养基地、国家体育与艺术师资培养培训基地、教育部高校辅导员培训和研修基地、大学生文化素质教育基地、国家实验教学示范中心、国家级虚拟仿真实验教学中心、国家大学生校外实践教育基地、国家卓越法律人才教育培养基地各1个。本科教学工作水平被教育部评为优秀，被列为江苏省内本科自主招生试点单位；学生在“挑战杯”等全国竞赛中多次获得特等奖或一等奖，4篇论文入选全国优秀博士学位论文。</p>
 </div>
+<div style="height: 40px;"></div>

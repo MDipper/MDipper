@@ -97,8 +97,7 @@ public class AccountController {
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> loginpost(
 			@RequestParam(value = "username") String username,
-			@RequestParam(value = "password") String password,
-			HttpServletResponse response, HttpServletRequest request) {
+			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		/**
 		 * 生产环境需要过滤sql注入

@@ -5,7 +5,7 @@
 #newscontent .newslist {
 	background: #fafafa;
 	width: 80%;
-	height: auto;
+	height: 300px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 40px;
@@ -29,18 +29,20 @@
 	</div>
 	<div id="newscontent">
 		<c:forEach var="item" items="${newslist}" varStatus="status">
-			<div  class="newslist">
+			<div class="newslist">
 				<img src="${image}/newstest.jpg"
 					style="margin: 0px; float: right; width: 450px; height: 300px;" />
 				<div style="padding: 35px;">
 					<div style="font-size: 18px;">${item.newsdate}</div>
 					<div style="font-size: 20px; color: blue;">
-						<a href="${ctx}/main/shownewstext" style="text-decoration: none;">${item.newstitle}</a>
+						<a onclick="shownewstext" href="${ctx}/main/shownewstext" style="text-decoration: none;">${item.newstitle}</a>
+						<div style="display: none">${item.newsid}</div>
 					</div>
 					<div>${item.newsabstract}</div>
 					<div>
-						<a class="text-decoration: none;" href="${ctx}/main/shownewstext"><span
+						<a onclick="shownewstext"  href="${ctx}/main/shownewstext" class="text-decoration: none;"><span
 							class="btn btn-primary block full-width m-b">阅读更多</span></a>
+						<div style="display: none">${item.newsid}</div>
 					</div>
 				</div>
 			</div>
@@ -49,3 +51,14 @@
 		<div style="height: 40px;"></div>
 	</div>
 </div>
+<script>
+function shownewstext()
+{
+	$(function() {
+		$("#aboutmenu a div").click(function() {
+			$("#aboutmenu a div").removeClass("aboutactive");
+			$(this).find("div").addClass("aboutactive");
+		})
+	});
+}
+</script>

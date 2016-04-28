@@ -12,7 +12,13 @@
 	margin-bottom: 20px;
 	text-align: center;
 }
-
+#aboutshow{
+	width: 80%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
 </style>
 <script>
 	$(function() {
