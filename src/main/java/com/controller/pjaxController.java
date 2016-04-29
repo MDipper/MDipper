@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.News;
 import com.service.NewsService;
@@ -51,9 +51,10 @@ public class pjaxController {
 		return "news";
 	}
 	@RequestMapping(value = "/shownewstext")
-	public String shownewstext(){
-		List<News> newslist = newsService.findAllNews();
-		request.setAttribute("newslist", newslist);
+	public String shownewstext (@RequestParam(value="newsid") String newsidtemp){
+		Long newsid=Long.parseLong(newsidtemp);
+		News news = newsService.selectNewsByid(newsid);
+		request.setAttribute("news", news);
 		return "shownewstext";
 	}
 	
