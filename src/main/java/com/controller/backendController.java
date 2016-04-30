@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -43,7 +44,7 @@ public class backendController {
 	public String newsmanage() {
 		return "views/newsmanage";
 	}
-	@RequestMapping(value ="updateuser")
+	@RequestMapping(value ="updateuser",method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> updateuser(@RequestParam(value="user") User  user)
 	{		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -52,7 +53,7 @@ public class backendController {
 		map.put("msg", "更新用户成功");
 		return map;
 	}
-	@RequestMapping(value ="deleteuser")
+	@RequestMapping(value ="deleteuser",method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value="userid")  int userid)
 	{		
 		Map<String, Object> map = new HashMap<String, Object>();
