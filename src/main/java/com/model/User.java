@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
  */
 public class User {
 
+
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;
 
@@ -16,11 +17,20 @@ public class User {
 	private Long userid;
 
 	private String username;
-	private String password;;
+	private String password;	
+	
 
 	public User() {
 		super();
 	}
+	
+	public User(Long userid, String username, String password) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.password = password;
+	}
+	
 
 	public Long getId() {
 		return userid;
@@ -45,5 +55,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + "]";
+	}
+	
+	
 
 }
