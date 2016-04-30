@@ -4,9 +4,9 @@
 <mapper namespace="com.mapper.UserMapper">
 	<!-- 解决表名与字段不匹配 -->
 	<resultMap type="User" id="userResultMap">
-		<id property="userid" column="userid"/>
-		<result property="username" column="username"/>
-		<result property="password" column="password"/>
+		<id property="userid" column="userid" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
 	</resultMap>
 	<!-- 查询用户是否存在 -->
 	<select id="checkUserByUsername" resultType="int" parameterType="java.lang.String">
@@ -19,12 +19,20 @@
 		password) values(#{username}, #{password})
 	</insert>
 	
+	    <update id="updateUser" parameterType="User" >
+        update user set username=#{username},password=#{password} where userid=#{userid}
+    </update>
+    
+    <delete id="deleteUser" parameterType="int">
+        delete from user where userid=#{userid}
+    </delete>
+
 	<!-- 获取用户信息 -->
 	<select id="getUserInfoByName" resultType="User" parameterType="User">
 		select * from user WHERE username=#{username}
 	</select>
-	
-	<!-- 查询所有用户-->
+
+	<!-- 查询所有用户 -->
 	<select id="findAllUser" resultType="User">
 		select * from user
 	</select>

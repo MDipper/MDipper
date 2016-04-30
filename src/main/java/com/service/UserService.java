@@ -16,7 +16,8 @@ public interface UserService {
 	 * @return 修改的行数
 	 */
 	int addUser(User user);
-	
+	void deleteUser(int userid);
+	void updateUser(User user);
 	/**
 	 * 查询用户是否存在
 	 * @param username 用户名

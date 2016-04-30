@@ -26,7 +26,12 @@ public class UserServiceImpl implements UserService {
 		int userid = userMapper.addUser(user);
 		return userid;
 	}
-
+	public void  deleteUser(int userid){
+		userMapper.deleteUser(userid);
+	}
+	public void updateUser(User user){
+		userMapper.updateUser(user);
+	}
 	public boolean checkUserByUsername(String username) {
 		return userMapper.checkUserByUsername(username) == 1;
 	}

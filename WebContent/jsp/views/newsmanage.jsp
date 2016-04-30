@@ -22,8 +22,8 @@
 				success : function(data) {
 					alert(data.msg);
 				},
-				error : function() {
-					alert("出错了！！")
+				error:function(){
+					console.log("出错了！！")
 				}
 			})
  };

@@ -8,7 +8,7 @@
  		</c:forEach> --%>
 		<div>${news.newstext}</div>
 		<div>
-			<input class="btn btn-primary block " type="button" value="返回"
+			<input class="btn btn-primary block " style="width:100px;height:40px" type="button" value="返回"
 				onclick="javascript:history.back();" />
 		</div>
 	</div>

@@ -43,7 +43,24 @@ public class backendController {
 	public String newsmanage() {
 		return "views/newsmanage";
 	}
-
+	@RequestMapping(value ="updateuser")
+	public @ResponseBody Map<String, Object> updateuser(@RequestParam(value="user") User  user)
+	{		
+		Map<String, Object> map = new HashMap<String, Object>();
+		userService.updateUser(user);
+		map.put("code", "400");
+		map.put("msg", "更新用户成功");
+		return map;
+	}
+	@RequestMapping(value ="deleteuser")
+	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value="userid")  int userid)
+	{		
+		Map<String, Object> map = new HashMap<String, Object>();
+		userService.deleteUser(userid);
+		map.put("code", "400");
+		map.put("msg", "删除用户成功");
+		return map;
+	}
 	@RequestMapping(value = "/savenews")
 	public @ResponseBody Map<String, Object> savenews(
 			@RequestParam(value = "newsdate") Date newsdate,
