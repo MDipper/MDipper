@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.model.News;
 import com.service.NewsService;
@@ -45,19 +46,24 @@ public class pjaxController {
 	}
 
 	@RequestMapping(value = "/news")
-	public String news()  {
+	public String news() {
 		List<News> newslist = newsService.findAllNews();
 		request.setAttribute("newslist", newslist);
 		return "news";
 	}
-	@RequestMapping(value = "/shownewstext")
-	public String shownewstext (@RequestParam(value="newsid") String newsidtemp){
-		Long newsid=Long.parseLong(newsidtemp);
-		News news = newsService.selectNewsByid(newsid);
-		request.setAttribute("news", news);
+
+	@RequestMapping(value = "/shownewstext/{id}")
+	public String shownewstext(@PathVariable(value = "id") String newsidtemp) {
+		try {
+			Long newsid = Long.parseLong(newsidtemp);
+			News news = newsService.selectNewsByid(newsid);
+			request.setAttribute("news", news);
+		} catch (NumberFormatException e) {
+			logger.warn("shownewstext: bad parameter", e);
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+		}
 		return "shownewstext";
 	}
-	
 
 	@RequestMapping(value = "/service")
 	public String service() {
