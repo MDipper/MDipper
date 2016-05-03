@@ -128,7 +128,7 @@ public class backendController {
 		return userService.findAllUser();
 	}
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/")
 	public String index() {
 		SSOToken st = SSOHelper.getToken(request);
 		if (st != null) {
