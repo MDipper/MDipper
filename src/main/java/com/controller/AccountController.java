@@ -52,19 +52,18 @@ public class AccountController {
 
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> addUser(
-			@RequestParam(value = "username") String username,
+	public @ResponseBody Map<String, Object> addUser(@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (!userService.checkUserByUsername(username)) {
 			User user = new User();
 			user.setUsername(username);
 			user.setPassword(SaltEncoder.md5SaltEncode(username, password));
-			int id = userService.addUser(user);
+			long id = userService.addUser(user);
 			logger.debug(String.format("add user: id=%d name=%s", id, username));
 			map.put("code", "200");
 			map.put("msg", "注册成功！");
-			
+
 			long userid = userService.validUserAndPassword(user);
 			/*
 			 * authSSOCookie 设置 cookie 同时改变 jsessionId
@@ -83,8 +82,7 @@ public class AccountController {
 			 */
 			request.setAttribute(SSOConfig.SSO_COOKIE_MAXAGE, -1);// 浏览器关闭自动删除cookie
 			SSOHelper.setSSOCookie(request, response, st, true);
-			
-			
+
 		} else {
 			logger.warn(String.format("conflict user: name=%s", username));
 			map.put("code", "400");
@@ -95,8 +93,7 @@ public class AccountController {
 
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> loginpost(
-			@RequestParam(value = "username") String username,
+	public @ResponseBody Map<String, Object> loginpost(@RequestParam(value = "username") String username,
 			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		/**
@@ -110,8 +107,7 @@ public class AccountController {
 		user.setPassword(password_);
 		long userid = userService.validUserAndPassword(user);
 		if (userid != -1) {
-			logger.debug(String.format("login success: name=%s password=%s",
-					username_, password_));
+			logger.debug(String.format("login success: name=%s password=%s", username_, password_));
 			map.put("code", "200");
 			map.put("msg", "登录成功！");
 
@@ -133,8 +129,7 @@ public class AccountController {
 			request.setAttribute(SSOConfig.SSO_COOKIE_MAXAGE, -1);// 浏览器关闭自动删除cookie
 			SSOHelper.setSSOCookie(request, response, st, true);
 		} else {
-			logger.warn(String.format("wrong login: name=%s password=%s",
-					username_, password_));
+			logger.warn(String.format("wrong login: name=%s password=%s", username_, password_));
 			map.put("code", "400");
 			map.put("msg", "您输入的帐号或密码有误");
 		}
@@ -143,8 +138,7 @@ public class AccountController {
 
 	@Login(action = Action.Skip)
 	@RequestMapping(value = "/check_user")
-	public @ResponseBody String checkUserAvailable(
-			@RequestParam(value = "username") String username) {
+	public @ResponseBody String checkUserAvailable(@RequestParam(value = "username") String username) {
 		if (!userService.checkUserByUsername(username)) {
 			return String.valueOf(true);
 		} else {

@@ -22,20 +22,27 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	public UserMapper userMapper;
 
-	public int addUser(User user) {
-		int userid = userMapper.addUser(user);
+	public long addUser(User user) {
+		long userid = userMapper.addUser(user);
 		return userid;
 	}
-	public void  deleteUser(int userid){
+
+	public void deleteUser(long userid) {
 		userMapper.deleteUser(userid);
 	}
-	public void updateUser(User user){
+	
+	public void deleteUser(List<?> userlist) {
+		userMapper.deleteUserlist(userlist);
+	}
+
+	public void updateUser(User user) {
 		userMapper.updateUser(user);
 	}
+
 	public boolean checkUserByUsername(String username) {
 		return userMapper.checkUserByUsername(username) == 1;
 	}
-	
+
 	public long validUserAndPassword(User user) {
 		List<User> users = userMapper.getUserInfoByName(user);
 		if (users.isEmpty()) {
