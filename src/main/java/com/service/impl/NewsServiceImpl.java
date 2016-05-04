@@ -25,6 +25,9 @@ public class NewsServiceImpl implements NewsService {
 	 * @param news   新闻
 	 * @return 新闻id
 	 */
+	public void updateNews(News news){
+		newsMapper.updateNews(news);
+	}
 	public int addNews(News news){
 		return newsMapper.addNews(news);
 	}

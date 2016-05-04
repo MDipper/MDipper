@@ -44,6 +44,7 @@
 			</a>
 				<ul class="nav nav-second-level">
 					<li><a class="J_menuItem" href="${ctx}/backend/newsmanage">添加新闻</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/newslist">新闻列表</a></li>
 				</ul></li>
 			<li><a href="#"> <i class="fa fa-envelope"></i> <span
 					class="nav-label">企业管理</span> <span class="fa arrow"></span>
@@ -51,7 +52,7 @@
 				<ul class="nav nav-second-level">
 					<li><a class="J_menuItem" href="">信息修改</a></li>
 				</ul></li>
-			<li><a class="J_menuItem" href="${ctx}/backend/newslist"><i
+			<li><a class="J_menuItem" href="#"><i
 					class="fa fa-columns"></i> <span class="nav-label"> 测试模块</span></a></li>
 
 	</ul>

@@ -9,6 +9,7 @@
 <link href="${resource}/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
  function savenews() {
+			 var newstextmd1=document.getElementById("newstext").value;
 			$.ajax({
 				url : "${ctx}/backend/savenews",
 				data : {
@@ -16,7 +17,7 @@
 					newstitle:$("#newstitle").val(),
 					newsabstract:$("#newsabstract").val(),
 					newstext: testEditor.getHTML(),
-					newstextmd:$("newstext").val()
+					newstextmd:newstextmd1
 				},
 				type : "POST",
 				dataType : "json",

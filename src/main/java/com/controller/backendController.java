@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
@@ -48,7 +51,7 @@ public class backendController {
 
 	@RequestMapping(value = "/noticeEdit")
 	public String noticeEdit() {
-		List<Notice> noticelist=noticeService.findNotice();
+		List<Notice> noticelist = noticeService.findNotice();
 		request.setAttribute("noticelist", noticelist);
 		return "views/noticeEdit";
 	}
@@ -83,16 +86,33 @@ public class backendController {
 		return "views/news/newsmanage";
 	}
 
+	@RequestMapping(value = "/newsedit/{id}")
+	public String newsedit(@PathVariable(value = "id") String newsidtemp) {
+		try {
+			Long newsid = Long.parseLong(newsidtemp);
+			News news = newsService.selectNewsByid(newsid);
+			request.setAttribute("news", news);
+		} catch (NumberFormatException e) {
+			logger.warn("shownewstext: bad parameter", e);
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+		}
+		return "views/news/newsedit";
+	}
+
 	@RequestMapping(value = "/newslist")
 	public String newslist() {
+		List<News> newslist = newsService.findAllNews();
+		request.setAttribute("newslist", newslist);
 		return "views/news/newslist";
 	}
 
 	@RequestMapping(value = "updateuser", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> updateuser(@RequestParam(value = "userid") long userid,
-			@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
+	public @ResponseBody Map<String, Object> updateuser(
+			@RequestParam(value = "userid") long userid,
+			@RequestParam(value = "username") String username,
+			@RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		User  user=new User();
+		User user = new User();
 		user.setId(userid);
 		user.setUsername(username);
 		user.setPassword(password);
@@ -103,7 +123,8 @@ public class backendController {
 	}
 
 	@RequestMapping(value = "deleteuser", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value = "userid") long userid) {
+	public @ResponseBody Map<String, Object> deleteuser(
+			@RequestParam(value = "userid") long userid) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		userService.deleteUser(userid);
 		logger.info("delete user: " + userid);
@@ -112,9 +133,9 @@ public class backendController {
 		return map;
 	}
 
-	
 	@RequestMapping(value = "deleteuserlist", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value = "userlist") String userlist) {
+	public @ResponseBody Map<String, Object> deleteuser(
+			@RequestParam(value = "userlist") String userlist) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Long> list = new ArrayList<>();
 		try {
@@ -130,18 +151,19 @@ public class backendController {
 			map.put("code", "400");
 			map.put("msg", "删除失败");
 			return map;
-		}		
+		}
 	}
 
-	@RequestMapping(value = "/savenews")
+	@RequestMapping(value = "/savenews", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> savenews(
 			@RequestParam(value = "newsdate") Date newsdate,
 			@RequestParam(value = "newstitle") String newstitle,
 			@RequestParam(value = "newsabstract") String newsabstract,
-			@RequestParam(value = "newstext") String text) {
+			@RequestParam(value = "newstext") String newstext,
+			@RequestParam(value = "newstextmd") String newstextmd) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		logger.debug(String.format("text=%s", text));
-		if (text == null || "".equals(text)) {
+		logger.debug(String.format("newstext=%s", newstext));
+		if (newstext == null || "".equals(newstext)) {
 			map.put("code", "400");
 			map.put("msg", "新闻内容不能为空");
 		} else {
@@ -149,18 +171,48 @@ public class backendController {
 			news.setNewsdate(newsdate);
 			news.setNewstitle(newstitle);
 			news.setNewsabstract(newsabstract);
-			news.setNewstext(text);
+			news.setNewstext(newstext);
+			news.setNewstextmd(newstextmd);
 			newsService.addNews(news);
-			logger.debug(String.format("add newstext:%s", text));
+			logger.debug(String.format("add newstext:%s", newstext));
 			map.put("code", "200");
 			map.put("msg", "新闻保存成功");
 		}
 		return map;
 	}
 
+	@RequestMapping(value = "/updatenews", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> updatenews(
+			@RequestParam(value = "newsid") Long newsid,
+			@RequestParam(value = "newsdate") Date newsdate,
+			@RequestParam(value = "newstitle") String newstitle,
+			@RequestParam(value = "newsabstract") String newsabstract,
+			@RequestParam(value = "newstext") String newstext,
+			@RequestParam(value = "newstextmd") String newstextmd) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		logger.debug(String.format("newstext=%s", newstext));
+		if (newstext == null || "".equals(newstext)) {
+			map.put("code", "400");
+			map.put("msg", "新闻内容不能为空");
+		} else {
+			News news = new News();
+			news.setNewsid(newsid);
+			news.setNewsdate(newsdate);
+			news.setNewstitle(newstitle);
+			news.setNewsabstract(newsabstract);
+			news.setNewstext(newstext);
+			news.setNewstextmd(newstextmd);
+			newsService.updateNews(news);
+			logger.debug(String.format("add newstext:%s", newstext));
+			map.put("code", "200");
+			map.put("msg", "新闻更新成功");
+		}
+		return map;
+	}
+
 	@RequestMapping(value = "/notice")
 	public String notice() {
-		List<Notice> noticelist=noticeService.findNotice();
+		List<Notice> noticelist = noticeService.findNotice();
 		request.setAttribute("noticelist", noticelist);
 		return "views/notice";
 	}

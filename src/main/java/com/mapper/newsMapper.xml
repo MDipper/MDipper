@@ -9,13 +9,18 @@
 		<result property="newstitle" column="newstitle" />
 		<result property="newsabstract" column="newsabstract" />
 		<result property="newstext" column="newstext" />
+			<result property="newstextmd" column="newstextmd" />
 	</resultMap>
-
+	<update id="updateNews" parameterType="News">
+		update news set
+		newsdate=#{newsdate},newstitle=#{newstitle},newsabstract=#{newsabstract},newstext=#{newstext},newstextmd=#{newstextmd}    where
+		newsid=#{newsid}
+	</update>
 	<!-- 添加新闻 -->
 	<insert id="addNews" parameterType="News">
 		insert into news
-		(newsdate,newstitle,newsabstract,newstext)
-		values(#{newsdate},#{newstitle},#{newsabstract},#{newstext})
+		(newsdate,newstitle,newsabstract,newstext,newstextmd)
+		values(#{newsdate},#{newstitle},#{newsabstract},#{newstext},#{newstextmd})
 	</insert>
 
 	<!-- 查询所有新闻 -->

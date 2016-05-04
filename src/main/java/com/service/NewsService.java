@@ -11,7 +11,7 @@ import com.model.News;
 public interface NewsService {
 
 	int addNews(News news);
-
+	void updateNews(News news);
 	News selectNewsByid(long newsid);
 	
 	List<News> findAllNews();

@@ -11,8 +11,8 @@ import com.model.News;
 public interface NewsMapper {
 
 	int addNews(News news);
-
+	void updateNews(News news);
 	News selectNewsByid(long newsid);
-
+	
 	List<News> findAllNews();
 }

@@ -18,6 +18,14 @@ public class News {
 	private String newsabstract;
 	/** 新闻内容 */
 	private String newstext;
+	private String newstextmd;
+	public String getNewstextmd() {
+		return newstextmd;
+	}
+
+	public void setNewstextmd(String newstextmd) {
+		this.newstextmd = newstextmd;
+	}
 
 	public Long getNewsid() {
 		return newsid;
