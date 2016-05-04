@@ -160,6 +160,8 @@ public class backendController {
 
 	@RequestMapping(value = "/notice")
 	public String notice() {
+		List<Notice> noticelist=noticeService.findNotice();
+		request.setAttribute("noticelist", noticelist);
 		return "views/notice";
 	}
 
