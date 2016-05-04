@@ -48,6 +48,8 @@ public class backendController {
 
 	@RequestMapping(value = "/noticeEdit")
 	public String noticeEdit() {
+		List<Notice> noticelist=noticeService.findNotice();
+		request.setAttribute("noticelist", noticelist);
 		return "views/noticeEdit";
 	}
 
@@ -62,11 +64,14 @@ public class backendController {
 		notice.setNoticecontent(noticecontent);
 		logger.debug(String.format("noticetitle=%s", noticetitle));
 		if (noticetitle == null || "".equals(noticetitle)) {
+			map.put("code", "400");
 			map.put("msg", "公告标题不能为空！");
 		} else if (noticecontent == null || "".equals(noticecontent)) {
+			map.put("code", "400");
 			map.put("msg", "公告内容不能为空！");
 		} else {
 			noticeService.updateNotice(notice);
+			map.put("code", "200");
 			map.put("msg", "公告更新成功！");
 		}
 		return map;

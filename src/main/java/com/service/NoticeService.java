@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.model.Notice;
 
 /**
@@ -10,5 +12,5 @@ public interface NoticeService {
 
 	int addNotice(Notice notice);
 	void  updateNotice(Notice notice);
-	Notice findNotice();
+	List<Notice> findNotice();
 }

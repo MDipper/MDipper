@@ -9,7 +9,7 @@
 		<result property="password" column="password" />
 	</resultMap>
 	<!-- 查询用户是否存在 -->
-	<select id="checkUserByUsername" resultType="Long"
+	<select id="checkUserByUsername" resultType="java.lang.Long"
 		parameterType="java.lang.String">
 		select count(1) from user WHERE username=#{username}
 	</select>
@@ -26,14 +26,15 @@
 		userid=#{userid}
 	</update>
 
-	<delete id="deleteUser" parameterType="Long">
+	<delete id="deleteUser" parameterType="java.lang.Long">
 		delete from user where
 		userid=#{userid}
 	</delete>
 
 	<delete id="deleteUserlist" parameterType="java.util.List">
 		delete from user where userid in
-		<foreach item="id" collection="list" open="(" separator="," close=")">
+		<foreach item="id" collection="list" open="(" separator=","
+			close=")">
 			#{id}
 		</foreach>
 	</delete>

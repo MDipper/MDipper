@@ -31,7 +31,7 @@ public interface UserMapper {
 	 *            用户名
 	 * @return
 	 */
-	int checkUserByUsername(String username);
+	long checkUserByUsername(String username);
 
 	/**
 	 * 根据用户名返回用户信息

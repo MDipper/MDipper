@@ -5,7 +5,7 @@
 <html>
 
 <head>
-
+<title>MDipper后台</title>
 <link href="${resource}/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
 <link href="${resource}/css/font-awesome.min.css?v=4.4.0"
 	rel="stylesheet">

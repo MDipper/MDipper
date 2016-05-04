@@ -29,7 +29,7 @@ public class NoticeServiceImpl implements NoticeService {
 	public void  updateNotice(Notice notice){
 		noticeMapper.updateNotice(notice);
 	}
-	public 	Notice findNotice(){
+	public 	List<Notice> findNotice(){
 		return noticeMapper.findNotice();
 	}
 }

@@ -1,6 +1,8 @@
 package com.mapper;
 
 
+import java.util.List;
+
 import com.model.Notice;
 /**
  * @author xiezhipeng
@@ -9,5 +11,5 @@ import com.model.Notice;
 public interface NoticeMapper {
 	int addNotice(Notice notice);
 	void  updateNotice(Notice notice);
-	Notice findNotice();
+	List<Notice> findNotice();
 }
