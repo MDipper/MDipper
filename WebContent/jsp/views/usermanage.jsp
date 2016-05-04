@@ -127,10 +127,27 @@
 		                                alert('你点击了喜欢按钮，信息： ' + JSON.stringify(row));
 		                            },
 		                            'click .remove': function (e, value, row, index) {
-		                                $table.bootstrapTable('remove', {
-		                                    field: 'id',
-		                                    values: [row.id]
-		                                });
+		                            	$.post(
+		                    	    			'${ctx}/backend/deleteuser',
+		                    	    			{
+		                    	    				userid : row.id,
+		                    	    			}, function(data) {
+		                    	    				if (data.code == '200') {
+		                    	    					console.info('deleteuser:'+data.msg);
+		                    	    					$table.bootstrapTable('remove', {
+		        		                                    field: 'id',
+		        		                                    values: [row.id]
+		        		                                });
+		                    	    				} else if (data.code == '400') {
+		                    	    					alert(data.msg);
+		                    	    					console.error('deleteuser:'+data.msg);	    					
+		                    	    				}
+		                    	    			},
+		                    	    			// 默认返回字符串，设置值等于json则返回json数据
+		                    	    			'json').error(function() {
+		                    	    				alert("edit failed");
+		                    	    				console.error('deleteuser:'+"edit failed");
+		                    	    			});		                                	                                
 		                            }
 		                        },
 		                        formatter: function(value, row, index) {
@@ -165,18 +182,55 @@
         });
 		
 		$table.on('all.bs.table', function (e, name, args) {
-	        console.log(name, args);
+	        console.info(name, args);
 	    });
+		
+		$table.on('editable-save.bs.table', function (e, name, args) {
+			var field = name;
+	        var obj = args;
+	        $.post(
+	    			'${ctx}/backend/updateuser',
+	    			{
+	    				userid : obj.id,
+	    				username : obj.username,
+	    				password : obj.password,
+	    			}, function(data) {
+	    				if (data.code == '200') {
+	    					console.info('updateuser:'+data.msg);
+	    				} else if (data.code == '400') {
+	    					console.error('updateuser:'+data.msg);	    					
+	    				}
+	    			},
+	    			// 默认返回字符串，设置值等于json则返回json数据
+	    			'json').error(function() {
+	    				console.error('updateuser:'+"failed");
+	    			});
+	    });		
 		
 		$remove.click(function () {
             var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
                 return row.id
             });
-            $table.bootstrapTable('remove', {
-                field: 'id',
-                values: ids
-            });
-            $remove.prop('disabled', true);
+            $.post(
+	    			'${ctx}/backend/deleteuserlist',
+	    			{
+	    				userlist : ids.toString(),
+	    			}, function(data) {
+	    				if (data.code == '200') {
+	    		            $table.bootstrapTable('remove', {
+	    		                field: 'id',
+	    		                values: ids
+	    		            });
+	    		            $remove.prop('disabled', true);
+	    					console.info('deletelist:'+data.msg);
+	    				} else if (data.code == '400') {
+	    					console.error('deletelist:'+data.msg);	    					
+	    				}
+	    			},
+	    			// 默认返回字符串，设置值等于json则返回json数据
+	    			'json').error(function() {
+	    				console.error('deletelist:'+"failed");
+	    			});
         });
 		
         $(window).resize(function () {

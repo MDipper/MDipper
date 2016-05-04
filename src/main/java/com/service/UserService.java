@@ -12,11 +12,14 @@ public interface UserService {
 
 	/**
 	 * 添加用户
-	 * @param user 用户
+	 * 
+	 * @param user
+	 *            用户
 	 * @return 修改的行数
 	 */
-	int addUser(User user);
-	void deleteUser(int userid);
+	long addUser(User user);
+	void deleteUser(long userid);
+	void deleteUser(List<?> userlist);
 	void updateUser(User user);
 	/**
 	 * 查询用户是否存在

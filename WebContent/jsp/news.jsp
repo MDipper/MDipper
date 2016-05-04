@@ -35,12 +35,12 @@
 				<div style="padding: 35px;">
 					<div style="font-size: 18px;">${item.newsdate}</div>
 					<div style="font-size: 20px; color: blue;">
-						<a href="${ctx}/main/shownewstext?newsid=${item.newsid}"  style="text-decoration: none;">${item.newstitle}</a>
+						<a href="${ctx}/main/shownewstext/${item.newsid}"  style="text-decoration: none;">${item.newstitle}</a>
 						<div style="display: none">${item.newsid}</div>
 					</div>
 					<div>${item.newsabstract}</div>
 					<div>
-						<a  href="${ctx}/main/shownewstext?newsid=${item.newsid}"   class="text-decoration: none;"><span
+						<a  href="${ctx}/main/shownewstext/${item.newsid}"   class="text-decoration: none;"><span
 							class="btn btn-primary block full-width m-b">阅读更多</span></a>
 						<div style="display: none">${item.newsid}</div>
 					</div>

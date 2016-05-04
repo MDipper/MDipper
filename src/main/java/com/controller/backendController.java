@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,23 +84,48 @@ public class backendController {
 	}
 
 	@RequestMapping(value = "updateuser", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> updateuser(
-			@RequestParam(value = "user") User user) {
+	public @ResponseBody Map<String, Object> updateuser(@RequestParam(value = "userid") long userid,
+			@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		User  user=new User();
+		user.setId(userid);
+		user.setUsername(username);
+		user.setPassword(password);
 		userService.updateUser(user);
-		map.put("code", "400");
+		map.put("code", "200");
 		map.put("msg", "更新用户成功");
 		return map;
 	}
 
 	@RequestMapping(value = "deleteuser", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> deleteuser(
-			@RequestParam(value = "userid") int userid) {
+	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value = "userid") long userid) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		userService.deleteUser(userid);
-		map.put("code", "400");
+		logger.info("delete user: " + userid);
+		map.put("code", "200");
 		map.put("msg", "删除用户成功");
 		return map;
+	}
+
+	
+	@RequestMapping(value = "deleteuserlist", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value = "userlist") String userlist) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Long> list = new ArrayList<>();
+		try {
+			for (String s : userlist.split(",")) {
+				list.add(Long.parseLong(s));
+			}
+			userService.deleteUser(list);
+			logger.info("delete user: " + userlist);
+			map.put("code", "200");
+			map.put("msg", "批量删除用户成功");
+			return map;
+		} catch (NumberFormatException e) {
+			map.put("code", "400");
+			map.put("msg", "删除失败");
+			return map;
+		}		
 	}
 
 	@RequestMapping(value = "/savenews")
