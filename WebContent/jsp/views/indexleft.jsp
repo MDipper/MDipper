@@ -28,15 +28,31 @@
 			</div>
 			<div class="logo-element">MD</div>
 		</li>
-		<li><a href="#"> <i class="fa fa-home"></i> <span
-				class="nav-label">主页</span> <span class="fa arrow"></span>
-		</a>
-			<ul class="nav nav-second-level">
-				<li><a class="J_menuItem" href="${ctx}/backend/notice" data-index="0">系统公告</a></li>
-				<li><a class="J_menuItem" href="${ctx}/backend/usermanage">用户管理</a></li>
-				<li><a class="J_menuItem" href="${ctx}/backend/newsmanage">新闻管理</a></li>
-				<li><a class="J_menuItem" href="">企业管理</a></li>
-			</ul></li>
+	<li><a href="#"> <i class="fa fa-home"></i> <span
+					class="nav-label">主页</span> <span class="fa arrow"></span>
+			</a>
+				<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="${ctx}/backend/notice"
+						data-index="0">系统公告</a></li>
+
+				<li><a class="J_menuItem" href="${ctx}/backend/noticeEdit">编辑公告</a></li>
+				</ul></li>
+			<li><a class="J_menuItem" href="${ctx}/backend/usermanage"><i
+					class="fa fa-columns"></i> <span class="nav-label"> 用户管理</span></a></li>
+			<li><a href="#"> <i class="fa fa fa-bar-chart-o"></i> <span
+					class="nav-label">新闻管理</span> <span class="fa arrow"></span>
+			</a>
+				<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="${ctx}/backend/newsmanage">添加新闻</a></li>
+				</ul></li>
+			<li><a href="#"> <i class="fa fa-envelope"></i> <span
+					class="nav-label">企业管理</span> <span class="fa arrow"></span>
+			</a>
+				<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="">信息修改</a></li>
+				</ul></li>
+			<li><a class="J_menuItem" href="${ctx}/backend/newslist"><i
+					class="fa fa-columns"></i> <span class="nav-label"> 测试模块</span></a></li>
 
 	</ul>
 </div>

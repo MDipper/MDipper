@@ -1,0 +1,14 @@
+package com.service;
+
+import com.model.Notice;
+
+/**
+ * @author xiezhipeng
+ * @Date 2016-5-3
+ */
+public interface NoticeService {
+
+	int addNotice(Notice notice);
+	void  updateNotice(Notice notice);
+	Notice findNotice();
+}

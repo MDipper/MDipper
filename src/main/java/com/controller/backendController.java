@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
 import com.model.News;
+import com.model.Notice;
 import com.model.User;
 import com.service.NewsService;
+import com.service.NoticeService;
 import com.service.UserService;
 
 @Controller
@@ -33,6 +35,9 @@ public class backendController {
 	private NewsService newsService;
 
 	@Autowired
+	private NoticeService noticeService;
+
+	@Autowired
 	protected HttpServletRequest request;
 
 	@Autowired
@@ -40,28 +45,63 @@ public class backendController {
 
 	private static Logger logger = Logger.getLogger(backendController.class);
 
+	@RequestMapping(value = "/noticeEdit")
+	public String noticeEdit() {
+		return "views/noticeEdit";
+	}
+
+	@RequestMapping(value = "/savenotice", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> savenotice(
+			@RequestParam(value = "noticetitle") String noticetitle,
+			@RequestParam(value = "noticecontent") String noticecontent) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Notice notice = new Notice();
+		notice.setNoticeid(1);
+		notice.setNoticetitle(noticetitle);
+		notice.setNoticecontent(noticecontent);
+		logger.debug(String.format("noticetitle=%s", noticetitle));
+		if (noticetitle == null || "".equals(noticetitle)) {
+			map.put("msg", "公告标题不能为空！");
+		} else if (noticecontent == null || "".equals(noticecontent)) {
+			map.put("msg", "公告内容不能为空！");
+		} else {
+			noticeService.updateNotice(notice);
+			map.put("msg", "公告更新成功！");
+		}
+		return map;
+
+	}
+
 	@RequestMapping(value = "/newsmanage")
 	public String newsmanage() {
-		return "views/newsmanage";
+		return "views/news/newsmanage";
 	}
-	@RequestMapping(value ="updateuser",method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> updateuser(@RequestParam(value="user") User  user)
-	{		
+
+	@RequestMapping(value = "/newslist")
+	public String newslist() {
+		return "views/news/newslist";
+	}
+
+	@RequestMapping(value = "updateuser", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> updateuser(
+			@RequestParam(value = "user") User user) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		userService.updateUser(user);
 		map.put("code", "400");
 		map.put("msg", "更新用户成功");
 		return map;
 	}
-	@RequestMapping(value ="deleteuser",method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> deleteuser(@RequestParam(value="userid")  int userid)
-	{		
+
+	@RequestMapping(value = "deleteuser", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> deleteuser(
+			@RequestParam(value = "userid") int userid) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		userService.deleteUser(userid);
 		map.put("code", "400");
 		map.put("msg", "删除用户成功");
 		return map;
 	}
+
 	@RequestMapping(value = "/savenews")
 	public @ResponseBody Map<String, Object> savenews(
 			@RequestParam(value = "newsdate") Date newsdate,
@@ -73,7 +113,6 @@ public class backendController {
 		if (text == null || "".equals(text)) {
 			map.put("code", "400");
 			map.put("msg", "新闻内容不能为空");
-			return map;
 		} else {
 			News news = new News();
 			news.setNewsdate(newsdate);
@@ -84,9 +123,8 @@ public class backendController {
 			logger.debug(String.format("add newstext:%s", text));
 			map.put("code", "200");
 			map.put("msg", "新闻保存成功");
-			return map;
 		}
-
+		return map;
 	}
 
 	@RequestMapping(value = "/notice")

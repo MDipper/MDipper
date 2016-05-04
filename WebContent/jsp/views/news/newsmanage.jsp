@@ -15,7 +15,8 @@
 					newsdate:$("#newsdate").val(),
 					newstitle:$("#newstitle").val(),
 					newsabstract:$("#newsabstract").val(),
-					newstext : testEditor.getHTML()
+					newstext: testEditor.getHTML(),
+					newstextmd:$("newstext").val()
 				},
 				type : "POST",
 				dataType : "json",

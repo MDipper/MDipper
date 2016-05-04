@@ -5,9 +5,13 @@
 	<typeAliases>
 		<typeAlias alias="User" type="com.model.User"/>
 		<typeAlias alias="News" type="com.model.News"/>
+		<typeAlias alias="Notice" type="com.model.Notice"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/mapper/userMapper.xml" />
 		<mapper resource="com/mapper/newsMapper.xml" />
+		<mapper resource="com/mapper/noticeMapper.xml" />
+		
 	</mappers>
 </configuration>
+

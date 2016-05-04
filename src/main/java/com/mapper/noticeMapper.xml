@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.NoticeMapper">
+	<!-- 解决表名与字段不匹配 -->
+	<resultMap type="Notice" id="noticeResultMap">
+		<id property="noticeid" column="noticeid" />
+		<result property="noticetitle" column="noticetitle" />
+		<result property="noticecontent" column="noticecontent" />
+	</resultMap>
+
+	<insert id="addNotice" parameterType="Notice">
+		insert into notice
+		(noticetitle,noticecontent)
+		values(#{noticetitle},#{noticecontent})
+	</insert>
+
+	<select id="findNotice" resultType="Notice">
+		select * from notice
+	</select>
+	<update id="updateNotice" parameterType="Notice">
+		update notice set
+		noticetitle=#{noticetitle},noticecontent=#{noticecontent} where
+		noticeid=#{noticeid}
+	</update>
+
+</mapper>
