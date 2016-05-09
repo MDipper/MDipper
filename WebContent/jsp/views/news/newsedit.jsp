@@ -8,7 +8,13 @@
 <link rel="stylesheet" href="${css}/markdown/editormd.css" />
 <link href="${resource}/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
-	function updatenews() {
+$(document).ready(function() {
+
+	// validate the comment form when it is submitted
+	$("#newsForm").validate();
+});
+$.validator.setDefaults({
+	submitHandler : function() {
 		var newstextmd1=document.getElementById("newstext").value;
 		$.ajax({
 			url : "${ctx}/backend/updatenews",
@@ -30,7 +36,8 @@
 				location.href="${ctx}/backend/newslist";
 			}
 		})
-	};
+	}
+});
 </script>
 
 </head>
@@ -46,7 +53,7 @@
 					type="submit" onclick="javascript:history.back();" value="返回" />
 					<input
 					style="margin: 10px; float: right;" class="btn btn-primary block "
-					type="submit" onclick="updatenews()" value="保存修改" /><br /> <input
+					type="submit"   value="保存修改" /><br /> <input
 					id="newstitle" style="margin: 10px; width: 70%;" type="text"
 					placeholder="标题" required="true" value="${news.newstitle}" /><br />
 				<textarea id="newsabstract"
@@ -56,7 +63,7 @@
 					style="margin: 10px; font-size: 20px; font-family: 'Microsoft YaHei';">请在下面填写新闻内容:（使用markdown布局）</div>
 			</div>
 			<div id="test-editormd">
-				<textarea id="newstext" style="display: none;">${news.newstextmd}</textarea>
+				<textarea id="newstext"  required="true" style="display: none;">${news.newstextmd}</textarea>
 			</div>
 		</form>
 	</div>

@@ -11,40 +11,33 @@ import com.model.User;
 public interface UserMapper {
 	/**
 	 * 添加用户
-	 * 
-	 * @param user
-	 *            用户
+	 * @param user  用户
 	 * @return 修改的行数
 	 */
 	long addUser(User user);
-
+//	根据用户id删除用户
 	void deleteUser(long userid);
-	
+//	批量删除用户
 	void deleteUserlist(List<?> userlist);
-
+//	更新用户
 	void updateUser(User user);
 
 	/**
 	 * 查询用户是否存在
-	 * 
-	 * @param username
-	 *            用户名
+	 * @param username    用户名
 	 * @return
 	 */
 	long checkUserByUsername(String username);
 
 	/**
 	 * 根据用户名返回用户信息
-	 * 
-	 * @param user
-	 *            用户名
+	 * @param user    用户名
 	 * @return 用户信息
 	 */
 	List<User> getUserInfoByName(User user);
 
 	/**
 	 * 查询所有用户的信息
-	 * 
 	 * @return 用户信息的表
 	 */
 	List<User> findAllUser();

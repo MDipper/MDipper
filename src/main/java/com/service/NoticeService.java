@@ -10,7 +10,7 @@ import com.model.Notice;
  */
 public interface NoticeService {
 
-	int addNotice(Notice notice);
+	//int addNotice(Notice notice);
 	void  updateNotice(Notice notice);
-	List<Notice> findNotice();
+	Notice findNotice();
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.WayMapper">
+	<!-- 解决表名与字段不匹配 -->
+	<resultMap type="Way" id="wayResultMap">
+		<id property="wayid" column="wayid" />
+		<result property="address" column="address" />
+		<result property="zipcode" column="zipcode" />
+		<result property="linkman" column="linkman" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+	</resultMap>
+
+<!-- 	<insert id="addWay" parameterType="Way">
+		insert into way
+		(address,zipcode,linkman,phone,email)
+		values(#{address},#{zipcode},#{linkman},#{phone},#{email})
+	</insert> -->
+
+	<select id="findWay" resultType="Way">
+		select * from way
+	</select>
+	<update id="updateWay" parameterType="Way">
+		update way set
+		address=#{address},zipcode=#{zipcode},linkman=#{linkman},phone=#{phone},email=#{email} where
+		wayid=#{wayid}
+	</update>
+
+</mapper>

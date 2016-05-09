@@ -11,6 +11,7 @@
 		<result property="newstext" column="newstext" />
 			<result property="newstextmd" column="newstextmd" />
 	</resultMap>
+	<!-- 根据新闻id更新新闻的时间、标题、简介、内容 -->
 	<update id="updateNews" parameterType="News">
 		update news set
 		newsdate=#{newsdate},newstitle=#{newstitle},newsabstract=#{newsabstract},newstext=#{newstext},newstextmd=#{newstextmd}    where
@@ -27,7 +28,7 @@
 	<select id="findAllNews" resultType="News">
 		select * from news
 	</select>
-
+	<!--根据新闻id查找相应的新闻-->
 	<select id="selectNewsByid" resultType="News" parameterType="java.lang.Long">
 		select * from news WHERE newsid=#{newsid}
 	</select>

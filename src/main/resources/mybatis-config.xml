@@ -6,12 +6,15 @@
 		<typeAlias alias="User" type="com.model.User"/>
 		<typeAlias alias="News" type="com.model.News"/>
 		<typeAlias alias="Notice" type="com.model.Notice"/>
+		<typeAlias alias="CompanyInfo" type="com.model.CompanyInfo"/>
+		<typeAlias alias="Way" type="com.model.Way"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/mapper/userMapper.xml" />
 		<mapper resource="com/mapper/newsMapper.xml" />
 		<mapper resource="com/mapper/noticeMapper.xml" />
-		
+		<mapper resource="com/mapper/companyInfoMapper.xml"/>
+		<mapper resource="com/mapper/wayMapper.xml"/>
 	</mappers>
 </configuration>
 

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.model.News;
+import com.model.Way;
 import com.service.NewsService;
+import com.service.WayService;
 
 /**
  * @author xiezhipeng
@@ -24,6 +26,9 @@ import com.service.NewsService;
 public class pjaxController {
 	@Autowired
 	private NewsService newsService;
+	
+	@Autowired
+	private WayService wayService;
 
 	@Autowired
 	protected HttpServletRequest request;
@@ -38,6 +43,18 @@ public class pjaxController {
 	@RequestMapping(value = "/about")
 	public String about() {
 		return "about";
+	}
+	@RequestMapping(value = "/aboutus")
+	public String aboutus() {
+		return "about/aboutus";
+	}
+	@RequestMapping(value = "/cultrue")
+	public String cultrue() {
+		return "about/cultrue";
+	}
+	@RequestMapping(value = "/history")
+	public String history() {
+		return "about/history";
 	}
 
 	@RequestMapping(value = "/product")
@@ -77,6 +94,8 @@ public class pjaxController {
 
 	@RequestMapping(value = "/contact")
 	public String contact() {
+		Way ways=wayService.findWay();
+		request.setAttribute("ways", ways);
 		return "contact";
 	}
 

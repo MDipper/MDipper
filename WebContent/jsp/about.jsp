@@ -12,7 +12,8 @@
 	margin-bottom: 20px;
 	text-align: center;
 }
-#aboutshow{
+
+#aboutshow {
 	width: 80%;
 	height: auto;
 	margin-left: auto;
@@ -40,16 +41,16 @@
 	<div id="aboutmenu">
 		<span class="menu"></span>
 		<div>
-		<ul id="nav" class="navig">
-			<li><a href="#" class="aboutactive">关于我们</a>
-				<div></div></li>
-			<li><a href="#">企业文化</a>
-				<div></div></li>
-			<li><a href="#">发展历程</a>
-				<div></div></li>
-		</ul>
+			<ul id="nav" class="navig">
+				<li><a href="${ctx }/main/aboutus" class="aboutactive">关于我们</a>
+					<div></div></li>
+				<li><a href="${ctx }/main/cultrue">企业文化</a>
+					<div></div></li>
+				<li><a href="${ctx }/main/history">发展历程</a>
+					<div></div></li>
+			</ul>
 		</div>
-	
+
 	</div>
 	<div id="aboutshow">
 		<%@include file="/jsp/about/aboutus.jsp"%>

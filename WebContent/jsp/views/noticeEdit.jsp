@@ -6,9 +6,17 @@
 <head>
 <meta charset="utf-8" />
 <link href="${resource}/css/bootstrap.min.css" rel="stylesheet">
-<script src="${js}/jquery-1.11.1.js"></script>
+<script src="${resource}/js/jquery.min.js?v=2.1.4"></script>
+<script src="${js }/jquery.validate.min.js"></script>
+<script src="${js }/messages_zh.js"></script>
 <script type="text/javascript">
-	function savenotice() {
+$(document).ready(function() {
+
+	// validate the comment form when it is submitted
+	 $("#noticeForm").validate(); 
+});
+$.validator.setDefaults({
+	submitHandler : function() {
 		$.ajax({
 			url : "${ctx}/backend/savenotice",
 			data : {
@@ -18,33 +26,30 @@
 			type : "POST",
 			dataType : "json",
 			success : function(data) {
-				if (data.code == "200") {
 					alert(data.msg);
-				}
-				if (data.code == "400") {
-					alert(data.msg);
-				}
-
 			},
 			error : function() {
 				console.log("出错了！！")
 			}
 		})
-	};
+	}
+});
 </script>
 </head>
 <body>
-	<div>
-		<form id="noticeForm" class="m-t" role="form">
-		<c:forEach var="item" items="${noticelist}" varStatus="status">
-			<input id="noticetitle" style="margin: 10px; width: 70%;" type="text"
-				placeholder="公告标题" required="true"  value="${item.noticetitle}"/> <br />
-			<textarea id="noticecontent"
-				style="margin: 10px; width: 70%; height: 100px;" placeholder="公告内容"
-				required="true" >${item.noticecontent}</textarea>
-			<br /> <input style="margin: 10px;" class="btn btn-primary block "
-				type="submit" onclick="savenotice()" value="保存公告" />
-			</c:forEach>
+	<div id="layout">
+		<form id="noticeForm" class="m-t" role="form" method="post"
+			action="${ctx }/backend/savenotice">
+			<div style="padding: 20px;">
+				<input id="noticetitle" style="margin: 10px; width: 70%;"
+					type="text" placeholder="公告标题" required="true"
+					value="${notice.noticetitle}" /> <br />
+				<textarea id="noticecontent"
+					style="margin: 10px; width: 70%; height: 100px;" placeholder="公告内容"
+					required="true">${notice.noticecontent}</textarea>
+				<br /> <input style="margin: 10px;" class="btn btn-primary block "
+					type="submit" value="保存公告" />
+			</div>
 		</form>
 	</div>
 </body>

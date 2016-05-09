@@ -12,6 +12,7 @@
   	$(document).pjax('#companyinfo div div a', '#main');  
   	$(document).pjax('#servicemenu #nav a', '#serviceshow'); 
   	$(document).pjax('#newscontent div div div a', '#newscontent'); 
+  	$(document).pjax('#aboutmenu div  a', '#aboutshow'); 
   });
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

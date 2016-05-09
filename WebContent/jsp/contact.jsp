@@ -35,12 +35,11 @@
 				frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 		</div>
 		<div style="padding: 35px;">
-			<div>地址：南京市栖霞区文苑路1号</div>
-			<div>邮编：210046</div>
-			<div>联系人：MDipper</div>
-			<div>联系电话：123 4567 8910</div>
-			<div>传真：025-12345678 025-87654321</div>
-			<div>E-mail：marketing@MDipper.com</div>
+			<div>地址：${ways.address}</div>
+			<div>邮编：${ways.zipcode}</div>
+			<div>联系人：${ways.linkman}</div>
+			<div>联系电话：${ways.phone}</div>
+			<div>E-mail：${ways.email}</div>
 		</div>
 	</div>
 	<div style="height: 40px;"></div>

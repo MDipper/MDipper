@@ -27,7 +27,7 @@
 	<div style="background: #2d2e32;">
 		<div id="companyinfo" class="indexpage"  style="height:270px;">
 			<div style="padding: 35px;">
-				<img src="${image}/companyinfo.jpg" style="width:390px;height:200px;float:right;margin-left:20px;"/>
+				<img src="${image}/companyinfo.jpg" style="width:50%;height:200px;float:right;margin-left:20px;"/>
 				<div style="font-size: 24px;color: white;">企业简介 COMPANY INTRODUTION</div>
 				<div style="background: red; width: 10%; height: 2px; margin-bottom:30px;"></div>
 				<div style="color: white;">苏宁环球集团自1987年创业至今，栉风沐雨、励精图治，目前位列“2015中国民营企业500强”第17位，“中国民营企业服务业100强”第8位。企业总资产近千亿元，品牌价值超千亿元。苏宁环球集团在不断做大做强地产主业的同时，还积极谋求多元化发展。</div>

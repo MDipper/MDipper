@@ -2,6 +2,6 @@
 	pageEncoding="utf-8"%>
 <%@include file="/commons/tag_libs.jsp"%>
 <div>
-<h1>${noticelist[0].noticetitle}</h1>
-<h3>${noticelist[0].noticecontent}</h3>
+<h1>${notice.noticetitle}</h1>
+<h3>${notice.noticecontent}</h3>
 </div>

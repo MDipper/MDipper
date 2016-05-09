@@ -25,9 +25,11 @@ import com.baomidou.kisso.SSOToken;
 import com.model.News;
 import com.model.Notice;
 import com.model.User;
+import com.model.Way;
 import com.service.NewsService;
 import com.service.NoticeService;
 import com.service.UserService;
+import com.service.WayService;
 
 @Controller
 @RequestMapping("/backend")
@@ -42,6 +44,9 @@ public class backendController {
 	private NoticeService noticeService;
 
 	@Autowired
+	private WayService wayService;
+
+	@Autowired
 	protected HttpServletRequest request;
 
 	@Autowired
@@ -49,10 +54,39 @@ public class backendController {
 
 	private static Logger logger = Logger.getLogger(backendController.class);
 
+	@RequestMapping(value = "/wayedit")
+	public String wayedit() {
+		Way ways = wayService.findWay();
+		request.setAttribute("ways", ways);
+		return "views/wayedit";
+	}
+
+	@RequestMapping(value = "/updateway")
+	public @ResponseBody Map<String, Object> updateway(
+			@RequestParam(value = "address") String address,
+			@RequestParam(value = "zipcode") String zipcode,
+			@RequestParam(value = "linkman") String linkman,
+			@RequestParam(value = "phone") String phone,
+			@RequestParam(value = "email") String email) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Way way = new Way();
+		way.setWayid(1);
+		way.setAddress(address);
+		way.setZipcode(zipcode);
+		way.setLinkman(linkman);
+		way.setPhone(phone);
+		way.setEmail(email);
+		wayService.updateWay(way);
+		logger.debug(String.format("way=%s", way));
+		map.put("code", "200");
+		map.put("msg", "联系方式更新成功！");
+		return map;
+	}
+
 	@RequestMapping(value = "/noticeEdit")
 	public String noticeEdit() {
-		List<Notice> noticelist = noticeService.findNotice();
-		request.setAttribute("noticelist", noticelist);
+		Notice notice = noticeService.findNotice();
+		request.setAttribute("notice", notice);
 		return "views/noticeEdit";
 	}
 
@@ -65,18 +99,10 @@ public class backendController {
 		notice.setNoticeid(1);
 		notice.setNoticetitle(noticetitle);
 		notice.setNoticecontent(noticecontent);
-		logger.debug(String.format("noticetitle=%s", noticetitle));
-		if (noticetitle == null || "".equals(noticetitle)) {
-			map.put("code", "400");
-			map.put("msg", "公告标题不能为空！");
-		} else if (noticecontent == null || "".equals(noticecontent)) {
-			map.put("code", "400");
-			map.put("msg", "公告内容不能为空！");
-		} else {
-			noticeService.updateNotice(notice);
-			map.put("code", "200");
-			map.put("msg", "公告更新成功！");
-		}
+		noticeService.updateNotice(notice);
+		logger.debug(String.format("notice=%s", notice));
+		map.put("code", "200");
+		map.put("msg", "公告更新成功！");
 		return map;
 
 	}
@@ -212,8 +238,8 @@ public class backendController {
 
 	@RequestMapping(value = "/notice")
 	public String notice() {
-		List<Notice> noticelist = noticeService.findNotice();
-		request.setAttribute("noticelist", noticelist);
+		Notice notice= noticeService.findNotice();
+		request.setAttribute("notice", notice);
 		return "views/notice";
 	}
 

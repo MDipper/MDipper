@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/commons/tag_libs.jsp"%>
 <style>
 #aboutus img {
 	border: 1px solid #dddddd;

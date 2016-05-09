@@ -9,7 +9,16 @@ import com.model.Notice;
  * @Date 2016-5-3
  */
 public interface NoticeMapper {
-	int addNotice(Notice notice);
+	/*
+	 * 	添加系统公告
+	 */
+	//int addNotice(Notice notice);
+	/*
+	 * 更新系统公告
+	 */
 	void  updateNotice(Notice notice);
-	List<Notice> findNotice();
+	/*
+	 * 查询系统公告
+	 */
+	Notice findNotice();
 }

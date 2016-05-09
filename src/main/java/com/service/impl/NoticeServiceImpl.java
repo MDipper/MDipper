@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mapper.NewsMapper;
 import com.mapper.NoticeMapper;
-import com.model.News;
 import com.model.Notice;
-import com.service.NewsService;
 import com.service.NoticeService;
 
 /**
@@ -22,14 +19,14 @@ import com.service.NoticeService;
 public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	private NoticeMapper noticeMapper;
-
+/*
 	public int addNotice(Notice notice){
 		return noticeMapper.addNotice(notice);
-	}
+	}*/
 	public void  updateNotice(Notice notice){
 		noticeMapper.updateNotice(notice);
 	}
-	public 	List<Notice> findNotice(){
+	public 	Notice findNotice(){
 		return noticeMapper.findNotice();
 	}
 }

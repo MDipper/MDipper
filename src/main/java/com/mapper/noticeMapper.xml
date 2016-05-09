@@ -8,12 +8,12 @@
 		<result property="noticetitle" column="noticetitle" />
 		<result property="noticecontent" column="noticecontent" />
 	</resultMap>
-
+<!-- 
 	<insert id="addNotice" parameterType="Notice">
 		insert into notice
 		(noticetitle,noticecontent)
 		values(#{noticetitle},#{noticecontent})
-	</insert>
+	</insert> -->
 
 	<select id="findNotice" resultType="Notice">
 		select * from notice
