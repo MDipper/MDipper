@@ -14,11 +14,18 @@
 }
 
 #aboutshow {
+	background: #fafafa;
 	width: 80%;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 40px;
+}
+#aboutshow  .history div div {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-family: "Microsoft YaHei";
 }
 </style>
 <script>
@@ -55,4 +62,5 @@
 	<div id="aboutshow">
 		<%@include file="/jsp/about/aboutus.jsp"%>
 	</div>
+	<div style="height: 40px;"></div>
 </div>

@@ -1,6 +1,5 @@
 package com.service;
 
-import java.util.List;
 
 import com.model.CompanyInfo;
 
@@ -16,5 +15,5 @@ public interface CompanyInfoService {
 	/*
 	 * 查找公司信息
 	 */
-	List<CompanyInfo> findCompanyInfo();
+	CompanyInfo findCompanyInfo();
 }

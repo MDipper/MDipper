@@ -40,7 +40,7 @@
 	</delete>
 
 	<!-- 获取用户信息 -->
-	<select id="getUserInfoByName" resultType="User" parameterType="User">
+	<select id="getUserInfoByName" resultType="User"  parameterType="User">
 		select * from user WHERE username=#{username}
 	</select>
 

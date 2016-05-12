@@ -1,11 +1,17 @@
 package com.service.impl;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mapper.CompanyInfoMapper;
 import com.model.CompanyInfo;
+import com.service.CompanyInfoService;
 
-public class CompanyInfoServiceImpl {
+@Service
+@Transactional
+public class CompanyInfoServiceImpl implements CompanyInfoService {
+	@Autowired
 	private CompanyInfoMapper companyInfoMapper;
 	/*
 	 * 添加公司信息
@@ -20,7 +26,7 @@ public class CompanyInfoServiceImpl {
 	/*
 	 * 查找公司信息
 	 */
-	public List<CompanyInfo> findCompanyInfo(){
+	public CompanyInfo findCompanyInfo(){
 		return companyInfoMapper.findCompanyInfo();
 	}
 }

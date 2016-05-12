@@ -22,10 +22,12 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
+import com.model.CompanyInfo;
 import com.model.News;
 import com.model.Notice;
 import com.model.User;
 import com.model.Way;
+import com.service.CompanyInfoService;
 import com.service.NewsService;
 import com.service.NoticeService;
 import com.service.UserService;
@@ -45,7 +47,10 @@ public class backendController {
 
 	@Autowired
 	private WayService wayService;
-
+	
+	@Autowired
+	private CompanyInfoService companyInfoService;
+	
 	@Autowired
 	protected HttpServletRequest request;
 
@@ -53,6 +58,30 @@ public class backendController {
 	protected HttpServletResponse response;
 
 	private static Logger logger = Logger.getLogger(backendController.class);
+	
+	@RequestMapping(value = "/savehistory", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> savehistory(
+			@RequestParam(value = "cpnhistory") String cpnhistory,
+			@RequestParam(value = "cpnhistorymd") String cpnhistorymd) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		CompanyInfo companyInfo=new CompanyInfo();
+		companyInfo.setCpnid((long) 1);
+		companyInfo.setCpnhistory(cpnhistory);
+		companyInfo.setCpnhistorymd(cpnhistorymd);
+		companyInfoService.updateCompanyInfo(companyInfo);
+		logger.debug(String.format("notice=%s", cpnhistorymd));
+		map.put("code", "200");
+		map.put("msg", "发展历程保存成功！");
+		return map;
+
+	}
+	@RequestMapping(value = "/historyedit")
+	public String historyedit() {
+	CompanyInfo companyInfo=companyInfoService.findCompanyInfo();
+	String cpnhistorymd=companyInfo.getCpnhistorymd();
+	request.setAttribute("cpnhistorymd", cpnhistorymd);
+	return "views/historyedit";
+	}
 
 	@RequestMapping(value = "/wayedit")
 	public String wayedit() {
@@ -70,7 +99,7 @@ public class backendController {
 			@RequestParam(value = "email") String email) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Way way = new Way();
-		way.setWayid(1);
+		way.setWayid((long) 1);
 		way.setAddress(address);
 		way.setZipcode(zipcode);
 		way.setLinkman(linkman);

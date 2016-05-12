@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import com.model.CompanyInfo;
 import com.model.News;
 import com.model.Way;
+import com.service.CompanyInfoService;
 import com.service.NewsService;
 import com.service.WayService;
 
@@ -29,7 +31,8 @@ public class pjaxController {
 	
 	@Autowired
 	private WayService wayService;
-
+	@Autowired
+	private CompanyInfoService companyInfoService;
 	@Autowired
 	protected HttpServletRequest request;
 
@@ -54,6 +57,9 @@ public class pjaxController {
 	}
 	@RequestMapping(value = "/history")
 	public String history() {
+		CompanyInfo companyInfo= companyInfoService.findCompanyInfo();
+		String cpnhistory=companyInfo.getCpnhistory();
+		request.setAttribute("cpnhistory", cpnhistory);
 		return "about/history";
 	}
 

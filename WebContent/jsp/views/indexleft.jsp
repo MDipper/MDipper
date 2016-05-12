@@ -50,7 +50,7 @@
 					class="nav-label">企业信息</span> <span class="fa arrow"></span>
 			</a>
 				<ul class="nav nav-second-level">
-					<li><a class="J_menuItem" href="">企业历程</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/historyedit">企业历程</a></li>
 					<li><a class="J_menuItem" href="${ctx}/backend/wayedit">联系方式</a></li>
 				</ul></li>
 			<li><a class="J_menuItem" href=""><i
