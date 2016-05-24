@@ -22,12 +22,15 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
+import com.mapper.CustomerMapper;
 import com.model.CompanyInfo;
+import com.model.Customer;
 import com.model.News;
 import com.model.Notice;
 import com.model.User;
 import com.model.Way;
 import com.service.CompanyInfoService;
+import com.service.CustomerService;
 import com.service.NewsService;
 import com.service.NoticeService;
 import com.service.UserService;
@@ -38,7 +41,10 @@ import com.service.WayService;
 public class backendController {
 	@Autowired
 	private UserService userService;
-
+	
+	@Autowired
+	private CustomerService customerService;
+	
 	@Autowired
 	private NewsService newsService;
 
@@ -47,10 +53,10 @@ public class backendController {
 
 	@Autowired
 	private WayService wayService;
-	
+
 	@Autowired
 	private CompanyInfoService companyInfoService;
-	
+
 	@Autowired
 	protected HttpServletRequest request;
 
@@ -58,13 +64,13 @@ public class backendController {
 	protected HttpServletResponse response;
 
 	private static Logger logger = Logger.getLogger(backendController.class);
-	
+
 	@RequestMapping(value = "/savehistory", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> savehistory(
 			@RequestParam(value = "cpnhistory") String cpnhistory,
 			@RequestParam(value = "cpnhistorymd") String cpnhistorymd) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		CompanyInfo companyInfo=new CompanyInfo();
+		CompanyInfo companyInfo = new CompanyInfo();
 		companyInfo.setCpnid((long) 1);
 		companyInfo.setCpnhistory(cpnhistory);
 		companyInfo.setCpnhistorymd(cpnhistorymd);
@@ -75,12 +81,13 @@ public class backendController {
 		return map;
 
 	}
+
 	@RequestMapping(value = "/historyedit")
 	public String historyedit() {
-	CompanyInfo companyInfo=companyInfoService.findCompanyInfo();
-	String cpnhistorymd=companyInfo.getCpnhistorymd();
-	request.setAttribute("cpnhistorymd", cpnhistorymd);
-	return "views/historyedit";
+		CompanyInfo companyInfo = companyInfoService.findCompanyInfo();
+		String cpnhistorymd = companyInfo.getCpnhistorymd();
+		request.setAttribute("cpnhistorymd", cpnhistorymd);
+		return "views/historyedit";
 	}
 
 	@RequestMapping(value = "/wayedit")
@@ -134,6 +141,32 @@ public class backendController {
 		map.put("msg", "公告更新成功！");
 		return map;
 
+	}
+
+	@RequestMapping(value = "/addcustomer")
+	public String addcustomer() {
+		return "views/addcustomer";
+	}
+
+	@RequestMapping(value = "/savecustomer", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> savecustomer(
+			@RequestParam(value = "name") String name,
+			@RequestParam(value = "nature") String nature,
+			@RequestParam(value = "industry") String industry,
+			@RequestParam(value = "size") String size,
+			@RequestParam(value = "description") String description) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Customer customer = new Customer();
+		customer.setName(name);
+		customer.setNature(nature);
+		customer.setIndustry(industry);
+		customer.setSize(size);
+		customer.setDescription(description);
+		customerService.addCustomer(customer);
+		logger.debug(String.format("add description:%s", description));
+		map.put("code", "200");
+		map.put("msg", "客户保存成功");
+		return map;
 	}
 
 	@RequestMapping(value = "/newsmanage")
@@ -267,9 +300,19 @@ public class backendController {
 
 	@RequestMapping(value = "/notice")
 	public String notice() {
-		Notice notice= noticeService.findNotice();
+		Notice notice = noticeService.findNotice();
 		request.setAttribute("notice", notice);
 		return "views/notice";
+	}
+
+	@RequestMapping(value = "/customermanage")
+	public String customermanage() {
+		return "views/customermanage";
+	}
+
+	@RequestMapping("/ajaxAllCustomer")
+	public @ResponseBody List<Customer> ajaxAllcustomer() {
+		return customerService.findAllCustomer();
 	}
 
 	@RequestMapping(value = "/usermanage")

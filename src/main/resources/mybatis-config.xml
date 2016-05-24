@@ -8,6 +8,7 @@
 		<typeAlias alias="Notice" type="com.model.Notice"/>
 		<typeAlias alias="CompanyInfo" type="com.model.CompanyInfo"/>
 		<typeAlias alias="Way" type="com.model.Way"/>
+		<typeAlias alias="Customer" type="com.model.Customer"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/mapper/userMapper.xml" />
@@ -15,6 +16,7 @@
 		<mapper resource="com/mapper/noticeMapper.xml" />
 		<mapper resource="com/mapper/companyInfoMapper.xml"/>
 		<mapper resource="com/mapper/wayMapper.xml"/>
+		<mapper resource="com/mapper/customerMapper.xml"/>
 	</mappers>
 </configuration>
 
