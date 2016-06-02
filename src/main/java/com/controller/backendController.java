@@ -22,7 +22,6 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.SSOToken;
-import com.mapper.CustomerMapper;
 import com.model.CompanyInfo;
 import com.model.Customer;
 import com.model.News;
@@ -41,10 +40,10 @@ import com.service.WayService;
 public class backendController {
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@Autowired
 	private NewsService newsService;
 
@@ -323,6 +322,36 @@ public class backendController {
 	@RequestMapping("/ajaxAllUser")
 	public @ResponseBody List<User> ajaxAllUser() {
 		return userService.findAllUser();
+	}
+
+	@RequestMapping("/ajaxnature")
+	public @ResponseBody List<Map<String, Integer>> ajaxnature() {
+		return customerService.countByNature();
+	}
+
+	@RequestMapping("/ajaxindustry")
+	public @ResponseBody List<Map<String, Integer>> ajaxindustry() {
+		return customerService.countByIndustry();
+	}
+
+	@RequestMapping("/ajaxsize")
+	public @ResponseBody List<Map<String, Integer>> ajaxsize() {
+		return customerService.countBySize();
+	}
+
+	@RequestMapping(value = "/natureanalysis")
+	public String natureanalysis() {
+		return "views/customeranalysis/natureanalysis";
+	}
+
+	@RequestMapping(value = "/industryanalysis")
+	public String industryanalysis() {
+		return "views/customeranalysis/industryanalysis";
+	}
+
+	@RequestMapping(value = "/sizeanalysis")
+	public String sizeanalysis() {
+		return "views/customeranalysis/sizeanalysis";
 	}
 
 	@RequestMapping(value = "/index")

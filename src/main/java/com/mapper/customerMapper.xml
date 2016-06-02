@@ -11,25 +11,34 @@
 		<result property="size" column="size" />
 		<result property="description" column="description" />
 	</resultMap>
-	
+	<!-- 添加客户 -->
 	<insert id="addCustomer" parameterType="Customer">
 		insert into customer(name, nature ,industry,size,description )
 		 values(#{name},#{ nature },#{industry},#{size},#{description})
 	</insert>
-
+<!-- 更新客户-->
 	<update id="updateCustomer" parameterType="Customer">
 		update customer set
 		name=#{name}, nature=#{ nature } ,industry=#{industry},size=#{size},description=#{description}
 		where id=#{id}
 	</update>
-
+<!--  删除客户-->
 	<delete id="deleteCustomer" parameterType="java.lang.Long">
 		delete from customer where
 		id=#{id}
 	</delete>
-
+<!-- 查询所有客户-->
 	<select id="findAllCustomer" resultType="Customer">
 		select id,name,nature,industry,size from customer
 	</select>
-
+<!--以下是分析几个属性所占比例 -->
+	<select id="countByNature" resultType="java.util.HashMap">
+		SELECT nature ,count(nature) as count FROM customer GROUP BY nature 
+	</select>
+	<select id="countByIndustry" resultType="java.util.HashMap">
+		SELECT industry ,count(industry) as count FROM customer GROUP BY industry 
+	</select>
+	<select id="countBySize" resultType="java.util.HashMap">
+		SELECT size ,count(size) as count FROM customer GROUP BY size   
+	</select>
 </mapper>

@@ -53,11 +53,18 @@
 					<li><a class="J_menuItem" href="${ctx}/backend/historyedit">企业历程</a></li>
 					<li><a class="J_menuItem" href="${ctx}/backend/wayedit">联系方式</a></li>
 				</ul></li>
-			<li><a class="J_menuItem" href="${ctx}/backend/customermanage"><i
-					class="fa fa-envelope "></i> <span class="nav-label"> 客户管理</span></a></li>
-			<li><a class="J_menuItem" href="${ctx}/backend/addcustomer"><i
-					class="fa fa-envelope "></i> <span class="nav-label"> 添加客户</span></a></li>
-
+						<li><a href="#"> <i class="fa fa-columns"></i> <span
+					class="nav-label">客户管理</span> <span class="fa arrow"></span>
+			</a>
+				<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="${ctx}/backend/customermanage">客户管理</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/addcustomer">添加客户</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/natureanalysis">公司性质分析</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/industryanalysis">公司行业分析</a></li>
+					<li><a class="J_menuItem" href="${ctx}/backend/sizeanalysis">公司规模分析</a></li>
+				</ul></li>
+			<li><a class="J_menuItem" href=""><i
+					class="fa fa-envelope "></i> <span class="nav-label"> 测试模块</span></a></li>
 		</ul>
 	</div>
 </nav>

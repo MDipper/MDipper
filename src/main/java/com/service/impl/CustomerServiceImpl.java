@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,17 @@ public class CustomerServiceImpl implements CustomerService {
 
 	public List<Customer> findAllCustomer(){
 		return customerMapper.findAllCustomer();
+	}
+
+	public List<Map<String, Integer>> countByNature(){
+		return customerMapper.countByNature();
+	}
+
+	public List<Map<String, Integer>> countByIndustry(){
+		return customerMapper.countByIndustry();
+	}
+
+	public List<Map<String, Integer>> countBySize(){
+		return customerMapper.countBySize();
 	}
 }
